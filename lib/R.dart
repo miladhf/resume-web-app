@@ -6,7 +6,13 @@ class R {
   static final size = _Sizes();
 }
 
-class _Strings {}
+class _Strings {
+  String home = 'خانه';
+
+  String skills = 'مهارت ها';
+
+  String portfolio = 'نمونه کارها';
+}
 
 class _Icons {
   // final ic_profile = 'assets/icons/ic_profile.svg';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
-import 'package:resume_web/home_page.dart';
+import 'package:resume_web/pages/home/home_page.dart';
 
 void main() {
   runApp(const MyApp());
