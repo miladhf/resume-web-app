@@ -5,9 +5,11 @@ import 'app_bar_button.dart';
 
 class HomeAppBar extends StatefulWidget implements PreferredSizeWidget {
   var height = 100.0;
+  Function(int selectedIndex) onSelectedChange;
 
   HomeAppBar({
     Key? key,
+    required this.onSelectedChange,
   }) : super(key: key);
 
   @override
@@ -25,6 +27,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
       _unSelectAll();
       isSelected[0] = true;
     });
+    widget.onSelectedChange(0);
   }
 
   _onSkillsTap() {
@@ -32,6 +35,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
       _unSelectAll();
       isSelected[1] = true;
     });
+    widget.onSelectedChange(1);
   }
 
   _onPortfolioTap() {
@@ -39,6 +43,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
       _unSelectAll();
       isSelected[2] = true;
     });
+    widget.onSelectedChange(2);
   }
 
   void _unSelectAll() {
