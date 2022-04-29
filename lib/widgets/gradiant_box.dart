@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class GradiantBox extends StatefulWidget {
   Widget child;
   double? width, height;
-  bool isFirstRun;
+  bool isFirstRun, animate;
   Function() firstRan;
 
   GradiantBox({
@@ -11,6 +11,7 @@ class GradiantBox extends StatefulWidget {
     required this.child,
     required this.isFirstRun,
     required this.firstRan,
+    required this.animate,
     this.width,
     this.height,
   }) : super(key: key);
@@ -30,9 +31,14 @@ class _GradiantBoxState extends State<GradiantBox>
   @override
   void initState() {
     super.initState();
-    if (widget.isFirstRun) {
-      defaultWidth = 0;
-      _animate();
+    if (widget.animate) {
+      if (widget.isFirstRun) {
+        defaultWidth = 0;
+        _animate();
+      } else {
+        defaultWidth = widget.width;
+        defaultOpacity = 1;
+      }
     } else {
       defaultWidth = widget.width;
       defaultOpacity = 1;
@@ -64,9 +70,8 @@ class _GradiantBoxState extends State<GradiantBox>
     controller?.addListener(() {
       setState(() {});
     });
-
-    await controller?.forward();
     widget.firstRan();
+    await controller?.forward();
   }
 
   @override

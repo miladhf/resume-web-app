@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:resume_web/pages/main_tabs/home_tab/home_tab.dart';
-import 'package:resume_web/pages/main_tabs/portfolio_tab.dart';
-import 'package:resume_web/pages/main_tabs/skills_tab.dart';
+import 'package:resume_web/pages/main_tabs/portfolio_tab/portfolio_tab.dart';
+import 'package:resume_web/pages/main_tabs/skills_tab/skills_tab.dart';
 
 import '../../widgets/app_bar/home_app_bar.dart';
 

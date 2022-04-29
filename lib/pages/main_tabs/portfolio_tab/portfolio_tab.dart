@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class PortfolioTab extends StatefulWidget {
+  static bool isFirstRun = true;
+
   const PortfolioTab({Key? key}) : super(key: key);
 
   @override
@@ -8,8 +10,14 @@ class PortfolioTab extends StatefulWidget {
 }
 
 class _PortfolioTabState extends State<PortfolioTab> {
+  _firstRan() {
+    PortfolioTab.isFirstRun = false;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Portfolio'));
+    return Center(
+      child: Text('PortfolioTab'),
+    );
   }
 }

@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 
 class BorderButton extends StatelessWidget {
   String text;
-  Widget icon;
+  Widget? icon;
   Function() onTap;
+  double? width;
 
   BorderButton({
     Key? key,
+    this.icon,
+    this.width,
     required this.text,
-    required this.icon,
     required this.onTap,
   }) : super(key: key);
 
@@ -22,7 +24,7 @@ class BorderButton extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         child: Container(
-          width: 230,
+          width: width ?? 230,
           height: 35,
           padding: const EdgeInsets.symmetric(horizontal: 20),
           decoration: BoxDecoration(

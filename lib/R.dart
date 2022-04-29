@@ -20,13 +20,73 @@ class _Strings {
   String myDescription =
       'برنامه نویس فلاتر و برنامه نویس اندروید با زبان java با 4 سال سابقه طراحی اپلیکیشن  و کارهای فریلنسری';
 
+  var copied = 'کپی شد';
+
+  String publicSkills = 'مهارت های عمومی';
+
+  var flutterSkills = 'مهارت های Flutter';
+
+  var androidSkills = 'مهارت های Android';
+
   var myEmail = 'miladhasel@gmail.com';
 
   var myPhoneNumber = '09379436990';
 
   var myLinkedin = 'Milad Haselforoush';
 
-  var copied = 'کپی شد';
+  var selfLearning = 'Self Learning';
+
+  var git = 'Git';
+
+  var scrum = 'Scrum';
+
+  var jwt = 'Jwt';
+
+  var oop = 'OOP';
+
+  var restfulApi = 'Restful Api';
+
+  var trello = 'Trello';
+
+  var postman = 'Postman';
+
+  var firebase = 'Firebase';
+
+  var bloc = 'Bloc';
+
+  var riverpod = 'Riverpod';
+
+  var hive = 'Hive';
+
+  var sqflite = 'Sqflite';
+
+  var dio = 'Dio';
+
+  var freezed = 'Freezed';
+
+  var pwa = 'Pwa';
+
+  var responsiveUi = 'Responsive Ui';
+
+  var googleMap = 'Google Map';
+
+  var openStreetMap = 'Open Street Map';
+
+  var animations = 'Animations';
+
+  var cloudFirestore = 'Cloud Firestore';
+
+  var mvvm = 'MVVM';
+
+  var mvp = 'MVP';
+
+  var retrofit = 'Retrofit';
+
+  var volley = 'Volley';
+
+  var sqlite = 'Sqlite';
+
+  var room = 'Room';
 }
 
 class _Icons {
