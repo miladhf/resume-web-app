@@ -18,15 +18,23 @@ class MyApp extends StatelessWidget {
           fontFamily: 'shabnam',
           primarySwatch: Colors.blue,
           scaffoldBackgroundColor: const Color(0xff232323),
+          primaryColor: const Color(0xff5900EA),
           colorScheme: ColorScheme.fromSwatch(
             primarySwatch: Colors.blue,
           ).copyWith(
-            secondary: const Color(0xffFF00C7),
+            // secondary: const Color(0xffFF00C7),
+            secondary: const Color(0xff8702b4),
+
             background: const Color(0xff232323),
           ),
           textTheme: const TextTheme(
-            headline1: TextStyle(fontFamily: 'shabnam-bold', fontSize: 50),
+            headline1: TextStyle(
+                fontFamily: 'shabnam-bold', fontSize: 30, color: Colors.white),
             headline2: TextStyle(fontFamily: 'shabnam-bold', fontSize: 20),
+            headline3: TextStyle(
+                fontFamily: 'shabnam-bold', fontSize: 16, color: Colors.white),
+            bodyText1: TextStyle(
+                fontFamily: 'shabnam', fontSize: 14, color: Colors.white),
           )),
       builder: (context, widget) => ResponsiveWrapper.builder(widget,
           // maxWidth: 1200,
@@ -42,4 +50,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:resume_web/pages/main_tabs/home_tab.dart';
+import 'package:resume_web/pages/main_tabs/home_tab/home_tab.dart';
 import 'package:resume_web/pages/main_tabs/portfolio_tab.dart';
 import 'package:resume_web/pages/main_tabs/skills_tab.dart';
 
@@ -32,9 +32,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.rtl,
-      child: Scaffold(
-        appBar: HomeAppBar(onSelectedChange: _onSelectedChange),
-        body: tabs[index],
+      child: SafeArea(
+        child: Scaffold(
+          appBar: HomeAppBar(onSelectedChange: _onSelectedChange),
+          body: tabs[index],
+        ),
       ),
     );
   }
