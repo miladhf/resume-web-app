@@ -27,7 +27,7 @@ class _SkillsTabState extends State<SkillsTab> {
   void _onSkillTap(String skill) {}
 
   void _animate() async {
-    await Future.delayed(const Duration(seconds: 1));
+    await Future.delayed(const Duration(milliseconds: 500));
     if (mounted) {
       setState(() {
         publicSkillsOffset = const Offset(0, 0);

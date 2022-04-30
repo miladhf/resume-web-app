@@ -14,7 +14,7 @@ class _Strings {
 
   String portfolio = 'نمونه کارها';
 
-  String myName = 'نام و نام خانوادگی';
+  String myName = 'میلاد حاصل فروش';
 
   String myJob = 'برنامه نویس فلاتر و اندروید';
 

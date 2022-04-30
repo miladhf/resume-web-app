@@ -1,6 +1,5 @@
 import 'dart:js' as js;
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:resume_web/R.dart';
 import 'package:resume_web/links.dart';
