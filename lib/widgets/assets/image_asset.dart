@@ -16,7 +16,7 @@ class ImageAsset extends StatelessWidget {
   Widget build(BuildContext context) {
     return (kIsWeb && kReleaseMode)
         ? Image.network(
-            'asset/$asset',
+            'assets/$asset',
             width: width,
             height: height,
             fit: BoxFit.fill,

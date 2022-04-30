@@ -51,14 +51,13 @@ class _PortfolioImagesDialogState extends State<PortfolioImagesDialog> {
 
   ImageProvider _getImageProvider(int index) {
     if (kIsWeb && kReleaseMode) {
-      return NetworkImage('asset/${widget.photos[index]}');
+      return NetworkImage('assets/${widget.photos[index]}');
     }
     return AssetImage(widget.photos[index]);
   }
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     count = "${widget.index + 1}/${widget.photos.length}";

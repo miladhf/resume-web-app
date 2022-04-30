@@ -19,7 +19,7 @@ class SvgAsset extends StatelessWidget {
   Widget build(BuildContext context) {
     return (kIsWeb && kReleaseMode)
         ? SvgPicture.network(
-            'asset/$asset',
+            'assets/$asset',
             width: width,
             height: height,
             color: color ?? Colors.white,
