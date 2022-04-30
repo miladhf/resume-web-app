@@ -1,5 +1,6 @@
 import 'dart:js' as js;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:resume_web/links.dart';
@@ -21,11 +22,20 @@ class HomeTab extends StatefulWidget {
 class _HomeTabState extends State<HomeTab> {
   _onEmailTap() async {
     await Clipboard.setData(ClipboardData(text: R.strings.myEmail));
+    if (defaultTargetPlatform == TargetPlatform.android ||
+        defaultTargetPlatform == TargetPlatform.iOS) {
+      return;
+    }
     showToastSuccess(context: context, message: R.strings.copied);
   }
 
   _onPhoneNumberTap() async {
     await Clipboard.setData(ClipboardData(text: R.strings.myPhoneNumber));
+    if (defaultTargetPlatform == TargetPlatform.android ||
+        defaultTargetPlatform == TargetPlatform.iOS) {
+      return;
+    }
+
     showToastSuccess(context: context, message: R.strings.copied);
   }
 
@@ -42,18 +52,18 @@ class _HomeTabState extends State<HomeTab> {
     double width = MediaQuery.of(context).size.width;
     return width >= R.size.mobileWidth
         ? HomeTabDesktop(
-      onEmailTap: _onEmailTap,
-      onPhoneNumberTap: _onPhoneNumberTap,
-      onLinkedinTap: _onLinkedinTap,
-      firstRan: _firstRan,
-      isFirstRun: HomeTab.isFirstRun,
-    )
+            onEmailTap: _onEmailTap,
+            onPhoneNumberTap: _onPhoneNumberTap,
+            onLinkedinTap: _onLinkedinTap,
+            firstRan: _firstRan,
+            isFirstRun: HomeTab.isFirstRun,
+          )
         : HomeTabMobile(
-      onEmailTap: _onEmailTap,
-      onPhoneNumberTap: _onPhoneNumberTap,
-      onLinkedinTap: _onLinkedinTap,
-      firstRan: _firstRan,
-      isFirstRun: HomeTab.isFirstRun,
-    );
+            onEmailTap: _onEmailTap,
+            onPhoneNumberTap: _onPhoneNumberTap,
+            onLinkedinTap: _onLinkedinTap,
+            firstRan: _firstRan,
+            isFirstRun: HomeTab.isFirstRun,
+          );
   }
 }
