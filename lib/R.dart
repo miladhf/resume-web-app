@@ -87,6 +87,39 @@ class _Strings {
   var sqlite = 'Sqlite';
 
   var room = 'Room';
+
+  var viewPics = 'مشاهده تصاویر';
+
+  var androidDownloadLink = 'لینک دانلود نسخه اندروید';
+
+  String bazyaftcheApp = 'اپلیکیشن بازیافتچه';
+
+  String bazyaftcheDescription =
+      'پروژه استارتاپی در حوزه مدیریت پسماند که در دست پیگیری هست';
+
+  var komakApp = 'اپلیکیشن کمک';
+
+  var komakDescription =
+      'اپلیکیشنی خدماتی برای ثبت خدمت توسط کارگزار و سفارش خدمت توسط کارفرما';
+
+  var tebebehanApp = 'اپلیکیشن طب بهان';
+
+  var tebebehanDescription =
+      'اپلیکیشن لغت نامه تخصصی برای دانشجویان طب سنتی که از کافه بازار قابل دانلود است';
+
+  var cafeBazaarDownloadLink = 'لینک کافه بازار';
+
+  var financialManagementApp = 'اپلیکیشن مالی ';
+
+  var financialManagementDescription =
+      'اپلیکیشن ویندوزی آفلاین برای مدیریت مالی و اطلاعات به سفارش یک واحد نیروی انتظامی';
+
+  var windowsDownloadLink = 'لینک دانلود نسخه ویندوز';
+
+  var marketApp = 'اپلیکیشن فروشگاهی ';
+
+  var marketDescription =
+      'اپلیکیشنی فروشگاهی برای فروش محصولات. اپلیکیشین به دلیل فعال نبودن سرور ، غیر فعال است.';
 }
 
 class _Icons {
@@ -96,7 +129,11 @@ class _Icons {
 }
 
 class _Images {
-  // final monitor = 'assets/images/monitor_image.png';
+  final bazyaftche_pic = 'assets/images/bazyaftche_pic.png';
+  final komak_pic = 'assets/images/komak_pic.png';
+  final tebebehan_pic = 'assets/images/tebebehan_pic.png';
+  final financial_management_pic = 'assets/images/financial_management_pic.png';
+  final market_pic = 'assets/images/market_pic.png';
 }
 
 class _Animations {

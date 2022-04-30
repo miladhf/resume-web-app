@@ -30,7 +30,8 @@ class MyApp extends StatelessWidget {
           textTheme: const TextTheme(
             headline1: TextStyle(
                 fontFamily: 'shabnam-bold', fontSize: 30, color: Colors.white),
-            headline2: TextStyle(fontFamily: 'shabnam-bold', fontSize: 20),
+            headline2: TextStyle(
+                fontFamily: 'shabnam-bold', fontSize: 20, color: Colors.white),
             headline3: TextStyle(
                 fontFamily: 'shabnam-bold', fontSize: 16, color: Colors.white),
             bodyText1: TextStyle(

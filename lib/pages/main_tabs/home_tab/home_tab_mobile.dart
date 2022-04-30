@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:resume_web/widgets/buttons/border_button.dart';
 import 'package:resume_web/widgets/gradiant_box.dart';
-import 'package:resume_web/widgets/svg_asset.dart';
 
 import '../../../R.dart';
+import '../../../widgets/assets/svg_asset.dart';
 
 class HomeTabMobile extends StatefulWidget {
   Function() onEmailTap, onPhoneNumberTap, onLinkedinTap;

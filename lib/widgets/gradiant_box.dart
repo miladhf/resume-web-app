@@ -5,6 +5,7 @@ class GradiantBox extends StatefulWidget {
   double? width, height;
   bool isFirstRun, animate;
   Function() firstRan;
+  bool? removeAlign;
 
   GradiantBox({
     Key? key,
@@ -14,6 +15,7 @@ class GradiantBox extends StatefulWidget {
     required this.animate,
     this.width,
     this.height,
+    this.removeAlign,
   }) : super(key: key);
 
   @override
@@ -82,27 +84,33 @@ class _GradiantBoxState extends State<GradiantBox>
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.topCenter,
-      child: Container(
-        width: widthAnimation?.value ?? defaultWidth,
-        height: widget.height,
-        margin: const EdgeInsets.symmetric(horizontal: 15),
-        clipBehavior: Clip.antiAlias,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(25),
-            color: Theme.of(context).primaryColor,
-            gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  Theme.of(context).primaryColor,
-                  Theme.of(context).colorScheme.secondary,
-                ])),
-        child: Opacity(
-          opacity: opacityAnimation?.value ?? defaultOpacity,
-          child: widget.child,
-        ),
+    if (widget.removeAlign == null) {
+      return Align(alignment: Alignment.topCenter, child: buildContainer());
+    } else if (widget.removeAlign == true) {
+      return buildContainer();
+    }
+    return buildContainer();
+  }
+
+  Container buildContainer() {
+    return Container(
+      width: widthAnimation?.value ?? defaultWidth,
+      height: widget.height,
+      margin: const EdgeInsets.symmetric(horizontal: 15),
+      clipBehavior: Clip.antiAlias,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(25),
+          color: Theme.of(context).primaryColor,
+          gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Theme.of(context).primaryColor,
+                Theme.of(context).colorScheme.secondary,
+              ])),
+      child: Opacity(
+        opacity: opacityAnimation?.value ?? defaultOpacity,
+        child: widget.child,
       ),
     );
   }
