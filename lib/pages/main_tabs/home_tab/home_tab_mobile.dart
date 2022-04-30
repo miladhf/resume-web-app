@@ -27,7 +27,7 @@ class _HomeTabMobileState extends State<HomeTabMobile> {
   @override
   Widget build(BuildContext context) {
     return GradiantBox(
-        animate: true,
+        defaultAnimate: true,
         height: 500,
         width: MediaQuery.of(context).size.width,
         isFirstRun: widget.isFirstRun,

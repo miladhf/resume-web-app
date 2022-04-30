@@ -38,9 +38,11 @@ class _PortfolioItemState extends State<PortfolioItem> {
 
   void _animate() async {
     await Future.delayed(const Duration(seconds: 1));
-    setState(() {
-      opacity = 1;
-    });
+    if (mounted) {
+      setState(() {
+        opacity = 1;
+      });
+    }
 
     widget.isFirstRun = false;
     widget.firstRan();
@@ -61,9 +63,9 @@ class _PortfolioItemState extends State<PortfolioItem> {
       duration: duration,
       curve: Curves.easeInOut,
       child: GradiantBox(
-        width: 290,
+        width: 300,
         height: 370,
-        animate: false,
+        defaultAnimate: false,
         isFirstRun: widget.isFirstRun,
         firstRan: widget.firstRan,
         removeAlign: true,
@@ -103,7 +105,7 @@ class _PortfolioItemState extends State<PortfolioItem> {
             if (widget.haveDownloadLink) const SizedBox(height: 15),
             if (widget.haveDownloadLink)
               BorderButton(
-                  width: 200,
+                  width: 180,
                   text: widget.downloadLinkText ?? '',
                   onTap: widget.onDownloadLinkTap!),
           ],

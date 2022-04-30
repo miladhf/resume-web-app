@@ -28,17 +28,23 @@ class _SkillsTabState extends State<SkillsTab> {
 
   void _animate() async {
     await Future.delayed(const Duration(seconds: 1));
-    setState(() {
-      publicSkillsOffset = const Offset(0, 0);
-    });
+    if (mounted) {
+      setState(() {
+        publicSkillsOffset = const Offset(0, 0);
+      });
+    }
     await Future.delayed(const Duration(milliseconds: 500));
-    setState(() {
-      flutterSkillsOffset = const Offset(0, 0);
-    });
+    if (mounted) {
+      setState(() {
+        flutterSkillsOffset = const Offset(0, 0);
+      });
+    }
     await Future.delayed(const Duration(milliseconds: 500));
-    setState(() {
-      androidSkillsOffset = const Offset(0, 0);
-    });
+    if (mounted) {
+      setState(() {
+        androidSkillsOffset = const Offset(0, 0);
+      });
+    }
 
     SkillsTab.isFirstRun = false;
   }
@@ -89,7 +95,7 @@ class _SkillsTabState extends State<SkillsTab> {
 
   GradiantBox buildPublicSkillsView(double buttonWidth) {
     return GradiantBox(
-      animate: false,
+      defaultAnimate: false,
       isFirstRun: SkillsTab.isFirstRun,
       firstRan: _firstRan,
       child: ExpansionSkillsView(
@@ -162,7 +168,7 @@ class _SkillsTabState extends State<SkillsTab> {
 
   GradiantBox buildFlutterSkillsView(double buttonWidth) {
     return GradiantBox(
-      animate: false,
+      defaultAnimate: false,
       isFirstRun: SkillsTab.isFirstRun,
       firstRan: _firstRan,
       child: ExpansionSkillsView(
@@ -253,7 +259,7 @@ class _SkillsTabState extends State<SkillsTab> {
 
   GradiantBox buildAndroidSkillsView(double buttonWidth) {
     return GradiantBox(
-      animate: false,
+      defaultAnimate: false,
       isFirstRun: SkillsTab.isFirstRun,
       firstRan: _firstRan,
       child: ExpansionSkillsView(

@@ -27,7 +27,7 @@ class _HomeTabDesktopState extends State<HomeTabDesktop> {
   @override
   Widget build(BuildContext context) {
     return GradiantBox(
-        animate: true,
+        defaultAnimate: true,
         height: 350,
         isFirstRun: widget.isFirstRun,
         firstRan: widget.firstRan,
