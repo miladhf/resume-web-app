@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
             headline1: TextStyle(
                 fontFamily: 'shabnam-bold', fontSize: 30, color: Colors.white),
             headline2: TextStyle(
-                fontFamily: 'shabnam-bold', fontSize: 20, color: Colors.white),
+                fontFamily: 'shabnam-bold', fontSize: 18, color: Colors.white),
             headline3: TextStyle(
                 fontFamily: 'shabnam-bold', fontSize: 16, color: Colors.white),
             bodyText1: TextStyle(

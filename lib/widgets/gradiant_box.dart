@@ -92,7 +92,7 @@ class _GradiantBoxState extends State<GradiantBox>
     return buildContainer();
   }
 
-  Container buildContainer() {
+  Widget buildContainer() {
     return Container(
       width: widthAnimation?.value ?? defaultWidth,
       height: widget.height,
@@ -100,7 +100,7 @@ class _GradiantBoxState extends State<GradiantBox>
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25),
-          color: Theme.of(context).primaryColor,
+          // color: Colors.grey.shade200.withOpacity(0.5),
           gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
