@@ -1,9 +1,11 @@
+import 'dart:js' as js;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:resume_web/links.dart';
 import 'package:resume_web/pages/main_tabs/home_tab/home_tab_desktop.dart';
 import 'package:resume_web/pages/main_tabs/home_tab/home_tab_mobile.dart';
 
-// import 'dart:js' as js;
 import '../../../R.dart';
 import '../../../widgets/toasts.dart';
 
@@ -28,7 +30,7 @@ class _HomeTabState extends State<HomeTab> {
   }
 
   _onLinkedinTap() {
-    // js.context.callMethod('open', ['https://www.linkedin.com/in/milad-haselforoush-787000217/']);
+    js.context.callMethod('open', [Links.link.linkedin]);
   }
 
   _firstRan() {
@@ -40,18 +42,18 @@ class _HomeTabState extends State<HomeTab> {
     double width = MediaQuery.of(context).size.width;
     return width >= R.size.mobileWidth
         ? HomeTabDesktop(
-            onEmailTap: _onEmailTap,
-            onPhoneNumberTap: _onPhoneNumberTap,
-            onLinkedinTap: _onLinkedinTap,
-            firstRan: _firstRan,
-            isFirstRun: HomeTab.isFirstRun,
-          )
+      onEmailTap: _onEmailTap,
+      onPhoneNumberTap: _onPhoneNumberTap,
+      onLinkedinTap: _onLinkedinTap,
+      firstRan: _firstRan,
+      isFirstRun: HomeTab.isFirstRun,
+    )
         : HomeTabMobile(
-            onEmailTap: _onEmailTap,
-            onPhoneNumberTap: _onPhoneNumberTap,
-            onLinkedinTap: _onLinkedinTap,
-            firstRan: _firstRan,
-            isFirstRun: HomeTab.isFirstRun,
-          );
+      onEmailTap: _onEmailTap,
+      onPhoneNumberTap: _onPhoneNumberTap,
+      onLinkedinTap: _onLinkedinTap,
+      firstRan: _firstRan,
+      isFirstRun: HomeTab.isFirstRun,
+    );
   }
 }

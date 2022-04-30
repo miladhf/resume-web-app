@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 import 'R.dart';
 
 class Links {
@@ -5,7 +7,19 @@ class Links {
   static final link = _Link();
 }
 
-class _Link {}
+class _Link {
+  final bazyaftche_apk = (kIsWeb && kReleaseMode)
+      ? 'assets/${R.outputs.bazyaftche_apk}'
+      : R.outputs.bazyaftche_apk;
+  final financial_management_setup = (kIsWeb && kReleaseMode)
+      ? 'assets/${R.outputs.financial_management_setup}'
+      : R.outputs.financial_management_setup;
+  final komak_apk = (kIsWeb && kReleaseMode)
+      ? 'assets/${R.outputs.komak_apk}'
+      : R.outputs.komak_apk;
+  final tebebehan = 'https://cafebazaar.ir/app/com.example.omidmilad.tebebehan';
+  final linkedin = 'https://www.linkedin.com/in/milad-haselforoush-787000217/';
+}
 
 class _Screenshots {
   var market = [

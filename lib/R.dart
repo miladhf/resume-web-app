@@ -4,6 +4,7 @@ class R {
   static final strings = _Strings();
   static final animations = _Animations();
   static final size = _Sizes();
+  static final outputs = _Outputs();
 }
 
 class _Strings {
@@ -202,6 +203,13 @@ class _Images {
   final tebebehan_screenshot_3 = 'assets/images/tebebehan_screenshot_3.jpg';
   final tebebehan_screenshot_4 = 'assets/images/tebebehan_screenshot_4.jpg';
   final tebebehan_screenshot_5 = 'assets/images/tebebehan_screenshot_5.jpg';
+}
+
+class _Outputs {
+  final bazyaftche_apk = 'assets/outputs/bazyaftche.apk';
+  final financial_management_setup =
+      'assets/outputs/financial-management_setup.exe';
+  final komak_apk = 'assets/outputs/komak.apk';
 }
 
 class _Animations {

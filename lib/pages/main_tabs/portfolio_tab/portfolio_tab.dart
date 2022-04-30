@@ -1,3 +1,5 @@
+import 'dart:js' as js;
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:resume_web/R.dart';
@@ -31,7 +33,9 @@ class _PortfolioTabState extends State<PortfolioTab> {
     );
   }
 
-  _onDownloadLinkBazyaftcheTap() {}
+  _onDownloadLinkBazyaftcheTap() {
+    js.context.callMethod('open', [Links.link.bazyaftche_apk]);
+  }
 
   _onViewPicsKomakTap() {
     showScaleTranslateAnimatedDialog(
@@ -43,7 +47,9 @@ class _PortfolioTabState extends State<PortfolioTab> {
     );
   }
 
-  _onDownloadLinkKomakTap() {}
+  _onDownloadLinkKomakTap() {
+    js.context.callMethod('open', [Links.link.komak_apk]);
+  }
 
   _onViewPicsTebebehanTap() {
     showScaleTranslateAnimatedDialog(
@@ -55,7 +61,9 @@ class _PortfolioTabState extends State<PortfolioTab> {
     );
   }
 
-  _onDownloadLinkTebebehanTap() {}
+  _onDownloadLinkTebebehanTap() {
+    js.context.callMethod('open', [Links.link.tebebehan]);
+  }
 
   _onViewPicsFinancialManagementTap() {
     showScaleTranslateAnimatedDialog(
@@ -67,7 +75,9 @@ class _PortfolioTabState extends State<PortfolioTab> {
     );
   }
 
-  _onDownloadLinkFinancialManagementTap() {}
+  _onDownloadLinkFinancialManagementTap() {
+    js.context.callMethod('open', [Links.link.financial_management_setup]);
+  }
 
   _onViewPicsMarketTap() {
     showScaleTranslateAnimatedDialog(
