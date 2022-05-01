@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:resume_web/pages/home/home_page.dart';
-import 'package:resume_web/utils.dart';
+import 'package:resume_web/utils/utils.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
             headline1: const TextStyle(
                 fontFamily: 'shabnam-bold', fontSize: 30, color: Colors.white),
             headline2: const TextStyle(
-                fontFamily: 'shabnam-bold', fontSize: 18, color: Colors.white),
+                fontFamily: 'shabnam-bold', fontSize: 17, color: Colors.white),
             headline3: const TextStyle(
                 fontFamily: 'shabnam-bold', fontSize: 16, color: Colors.white),
             bodyText1: TextStyle(

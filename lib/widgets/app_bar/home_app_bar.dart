@@ -1,8 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:resume_web/R.dart';
-import 'package:resume_web/utils.dart';
+import 'package:resume_web/utils/R.dart';
+import 'package:resume_web/utils/utils.dart';
 import 'package:resume_web/widgets/assets/svg_asset.dart';
 
 import 'app_bar_button.dart';
@@ -66,11 +65,11 @@ class _HomeAppBarState extends State<HomeAppBar> {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.transparent,
-      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
       child: Row(
         children: [
           const SizedBox(
-            width: 15,
+            width: 10,
           ),
           AppBarButton(
             onTap: _onHomeTap,
@@ -78,7 +77,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
             isSelected: isSelected[0],
           ),
           const SizedBox(
-            width: 15,
+            width: 10,
           ),
           AppBarButton(
             onTap: _onSkillsTap,
@@ -86,7 +85,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
             isSelected: isSelected[1],
           ),
           const SizedBox(
-            width: 15,
+            width: 10,
           ),
           AppBarButton(
             onTap: _onPortfolioTap,
@@ -100,53 +99,57 @@ class _HomeAppBarState extends State<HomeAppBar> {
     );
   }
 
-  DropdownButton<String> buildLanguageDropdown() {
-    return DropdownButton(
-      isDense: true,
-      dropdownColor: Theme.of(context).colorScheme.secondary,
-      borderRadius: BorderRadius.circular(20),
-      underline: Container(),
-      focusColor: Colors.transparent,
-      elevation: 0,
-      hint: Text(
-        'language'.tr(),
-        style: Theme.of(context).textTheme.headline2,
+  Widget buildLanguageDropdown() {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 5),
+      child: DropdownButton(
+        isDense: true,
+        dropdownColor: Theme.of(context).colorScheme.secondary,
+        borderRadius: BorderRadius.circular(20),
+        underline: Container(),
+        focusColor: Colors.transparent,
+        elevation: 0,
+        hint: Text(
+          'language'.tr(),
+          style: Theme.of(context).textTheme.headline2,
+        ),
+        alignment: Utils.isRtlLocale(context)
+            ? Alignment.centerLeft
+            : Alignment.centerRight,
+        icon: const Icon(
+          Icons.arrow_drop_down,
+          color: Colors.white,
+          size: 25,
+        ),
+        items: ['farsi'.tr(), 'english'.tr()].map((String value) {
+          return DropdownMenuItem<String>(
+            alignment: Alignment.center,
+            value: value,
+            child: Row(
+              children: [
+                SvgAsset(
+                  asset:
+                      value == 'farsi'.tr() ? R.icons.ic_iran : R.icons.ic_usa,
+                  width: 25,
+                  height: 25,
+                ),
+                const SizedBox(width: 5),
+                Text(
+                  value,
+                  style: Theme.of(context).textTheme.headline2,
+                ),
+              ],
+            ),
+          );
+        }).toList(),
+        onChanged: (value) {
+          if (value == 'farsi'.tr()) {
+            _onFarsiTap();
+          } else if (value == 'english'.tr()) {
+            _onEnglishTap();
+          }
+        },
       ),
-      alignment: Utils.isRtlLocale(context)
-          ? Alignment.centerLeft
-          : Alignment.centerRight,
-      icon: const Icon(
-        Icons.arrow_drop_down,
-        color: Colors.white,
-        size: 25,
-      ),
-      items: ['farsi'.tr(), 'english'.tr()].map((String value) {
-        return DropdownMenuItem<String>(
-          alignment: Alignment.center,
-          value: value,
-          child: Row(
-            children: [
-              SvgAsset(
-                asset: value == 'farsi'.tr() ? R.icons.ic_iran : R.icons.ic_usa,
-                width: 25,
-                height: 25,
-              ),
-              const SizedBox(width: 5),
-              Text(
-                value,
-                style: Theme.of(context).textTheme.headline2,
-              ),
-            ],
-          ),
-        );
-      }).toList(),
-      onChanged: (value) {
-        if (value == 'farsi'.tr()) {
-          _onFarsiTap();
-        } else if (value == 'english'.tr()) {
-          _onEnglishTap();
-        }
-      },
     );
   }
 }

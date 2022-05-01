@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:resume_web/utils.dart';
+import 'package:resume_web/utils/utils.dart';
 
 import '../assets/image_asset.dart';
 import '../buttons/border_button.dart';
@@ -10,7 +10,7 @@ class PortfolioItem extends StatefulWidget {
   bool isFirstRun;
   Function() firstRan;
   Function()? onDownloadLinkTap, onViewPicsTap;
-  String image, title, description;
+  String image, title, description, tagText;
 
   String? downloadLinkText;
   bool haveDownloadLink, showPicsButton;
@@ -22,6 +22,7 @@ class PortfolioItem extends StatefulWidget {
     required this.image,
     required this.title,
     required this.description,
+    required this.tagText,
     required this.haveDownloadLink,
     required this.showPicsButton,
     this.onDownloadLinkTap,
@@ -63,53 +64,83 @@ class _PortfolioItemState extends State<PortfolioItem> {
       opacity: widget.isFirstRun ? opacity : 1,
       duration: duration,
       curve: Curves.easeInOut,
-      child: GradiantBox(
-        width: 310,
-        height: 370,
-        defaultAnimate: false,
-        isFirstRun: widget.isFirstRun,
-        firstRan: widget.firstRan,
-        removeAlign: true,
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(25),
-                child: ImageAsset(
-                  asset: widget.image,
-                  width: 150,
-                  height: 150,
-                ),
-              ),
-            ),
-            Text(widget.title, style: Theme.of(context).textTheme.headline2),
-            const SizedBox(height: 15),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5),
-              child: Text(
-                widget.description,
-                textAlign: TextAlign.center,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyText1
-                    ?.copyWith(fontSize: Utils.isRtlLocale(context) ? 15 : 14),
-              ),
-            ),
-            if (widget.showPicsButton) const SizedBox(height: 15),
-            if (widget.showPicsButton)
-              BorderButton(
+      child: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: buildGradiantBox(),
+          ),
+          Positioned(top: 0, left: 0, child: buildTagView(context)),
+        ],
+      ),
+    );
+  }
+
+  GradiantBox buildGradiantBox() {
+    return GradiantBox(
+      width: 310,
+      height: 370,
+      defaultAnimate: false,
+      isFirstRun: widget.isFirstRun,
+      firstRan: widget.firstRan,
+      removeAlign: true,
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(25),
+              child: ImageAsset(
+                asset: widget.image,
                 width: 150,
-                text: 'viewPics'.tr(),
-                onTap: widget.onViewPicsTap!,
+                height: 150,
               ),
-            if (widget.haveDownloadLink) const SizedBox(height: 15),
-            if (widget.haveDownloadLink)
-              BorderButton(
-                  width: 180,
-                  text: widget.downloadLinkText ?? '',
-                  onTap: widget.onDownloadLinkTap!),
-          ],
+            ),
+          ),
+          Text(widget.title, style: Theme.of(context).textTheme.headline2),
+          const SizedBox(height: 15),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5),
+            child: Text(
+              widget.description,
+              textAlign: TextAlign.center,
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyText1
+                  ?.copyWith(fontSize: Utils.isRtlLocale(context) ? 15 : 14),
+            ),
+          ),
+          if (widget.showPicsButton) const SizedBox(height: 15),
+          if (widget.showPicsButton)
+            BorderButton(
+              width: 150,
+              text: 'viewPics'.tr(),
+              onTap: widget.onViewPicsTap!,
+            ),
+          if (widget.haveDownloadLink) const SizedBox(height: 15),
+          if (widget.haveDownloadLink)
+            BorderButton(
+                width: 180,
+                text: widget.downloadLinkText ?? '',
+                onTap: widget.onDownloadLinkTap!),
+        ],
+      ),
+    );
+  }
+
+  ClipOval buildTagView(BuildContext context) {
+    return ClipOval(
+      child: Container(
+        width: 55,
+        height: 55,
+        color: Colors.white,
+        alignment: Alignment.center,
+        child: Text(
+          widget.tagText,
+          style: Theme.of(context)
+              .textTheme
+              .headline3
+              ?.copyWith(color: Colors.black, fontSize: 15),
         ),
       ),
     );

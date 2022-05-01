@@ -4,11 +4,11 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:resume_web/links.dart';
 import 'package:resume_web/pages/main_tabs/home_tab/home_tab_desktop.dart';
 import 'package:resume_web/pages/main_tabs/home_tab/home_tab_mobile.dart';
+import 'package:resume_web/utils/links.dart';
 
-import '../../../R.dart';
+import '../../../utils/R.dart';
 import '../../../widgets/toasts.dart';
 
 class HomeTab extends StatefulWidget {

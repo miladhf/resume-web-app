@@ -1,11 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:resume_web/utils.dart';
+import 'package:resume_web/utils/utils.dart';
 import 'package:resume_web/widgets/assets/svg_asset.dart';
 import 'package:resume_web/widgets/buttons/border_button.dart';
 import 'package:resume_web/widgets/gradiant_box.dart';
 
-import '../../../R.dart';
+import '../../../utils/R.dart';
 
 class HomeTabDesktop extends StatefulWidget {
   Function() onEmailTap, onPhoneNumberTap, onLinkedinTap, onGithubTap;
