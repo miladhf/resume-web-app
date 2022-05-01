@@ -1,8 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:resume_web/pages/main_tabs/skills_tab/epansion_skills_view.dart';
 import 'package:resume_web/widgets/buttons/border_button.dart';
 
-import '../../../R.dart';
 import '../../../widgets/gradiant_box.dart';
 
 class SkillsTab extends StatefulWidget {
@@ -59,6 +59,8 @@ class _SkillsTabState extends State<SkillsTab> {
 
   @override
   Widget build(BuildContext context) {
+    EasyLocalization.of(context)?.locale;
+
     double buttonWidth = 150;
     return ListView(
       children: [
@@ -73,7 +75,7 @@ class _SkillsTabState extends State<SkillsTab> {
         const SizedBox(height: 20),
         AnimatedSlide(
             offset:
-                SkillsTab.isFirstRun ? flutterSkillsOffset : const Offset(0, 0),
+            SkillsTab.isFirstRun ? flutterSkillsOffset : const Offset(0, 0),
             duration: duration,
             curve: Curves.easeInOut,
             child: buildFlutterSkillsView(
@@ -82,7 +84,7 @@ class _SkillsTabState extends State<SkillsTab> {
         const SizedBox(height: 20),
         AnimatedSlide(
             offset:
-                SkillsTab.isFirstRun ? androidSkillsOffset : const Offset(0, 0),
+            SkillsTab.isFirstRun ? androidSkillsOffset : const Offset(0, 0),
             duration: duration,
             curve: Curves.easeInOut,
             child: buildAndroidSkillsView(
@@ -99,7 +101,7 @@ class _SkillsTabState extends State<SkillsTab> {
       isFirstRun: SkillsTab.isFirstRun,
       firstRan: _firstRan,
       child: ExpansionSkillsView(
-        title: R.strings.publicSkills,
+        title: 'publicSkills'.tr(),
         child: Wrap(
           runAlignment: WrapAlignment.spaceBetween,
           crossAxisAlignment: WrapCrossAlignment.center,
@@ -108,57 +110,57 @@ class _SkillsTabState extends State<SkillsTab> {
           children: [
             BorderButton(
                 width: buttonWidth,
-                text: R.strings.selfLearning,
+                text: 'selfLearning'.tr(),
                 onTap: () {
-                  _onSkillTap(R.strings.selfLearning);
+                  _onSkillTap('selfLearning');
                 }),
             BorderButton(
                 width: buttonWidth,
-                text: R.strings.git,
+                text: 'git'.tr(),
                 onTap: () {
-                  _onSkillTap(R.strings.git);
+                  _onSkillTap('git');
                 }),
             BorderButton(
                 width: buttonWidth,
-                text: R.strings.scrum,
+                text: 'scrum'.tr(),
                 onTap: () {
-                  _onSkillTap(R.strings.scrum);
+                  _onSkillTap('scrum');
                 }),
             BorderButton(
                 width: buttonWidth,
-                text: R.strings.jwt,
+                text: 'jwt'.tr(),
                 onTap: () {
-                  _onSkillTap(R.strings.jwt);
+                  _onSkillTap('jwt');
                 }),
             BorderButton(
                 width: buttonWidth,
-                text: R.strings.oop,
+                text: 'oop'.tr(),
                 onTap: () {
-                  _onSkillTap(R.strings.oop);
+                  _onSkillTap('oop');
                 }),
             BorderButton(
                 width: buttonWidth,
-                text: R.strings.restfulApi,
+                text: 'restfulApi'.tr(),
                 onTap: () {
-                  _onSkillTap(R.strings.restfulApi);
+                  _onSkillTap('restfulApi');
                 }),
             BorderButton(
                 width: buttonWidth,
-                text: R.strings.trello,
+                text: 'trello'.tr(),
                 onTap: () {
-                  _onSkillTap(R.strings.trello);
+                  _onSkillTap('trello');
                 }),
             BorderButton(
                 width: buttonWidth,
-                text: R.strings.postman,
+                text: 'postman'.tr(),
                 onTap: () {
-                  _onSkillTap(R.strings.postman);
+                  _onSkillTap('postman');
                 }),
             BorderButton(
                 width: buttonWidth,
-                text: R.strings.firebase,
+                text: 'firebase'.tr(),
                 onTap: () {
-                  _onSkillTap(R.strings.firebase);
+                  _onSkillTap('firebase');
                 }),
           ],
         ),
@@ -172,7 +174,7 @@ class _SkillsTabState extends State<SkillsTab> {
       isFirstRun: SkillsTab.isFirstRun,
       firstRan: _firstRan,
       child: ExpansionSkillsView(
-        title: R.strings.flutterSkills,
+        title: 'flutterSkills'.tr(),
         child: Wrap(
           runAlignment: WrapAlignment.spaceBetween,
           crossAxisAlignment: WrapCrossAlignment.center,
@@ -181,75 +183,75 @@ class _SkillsTabState extends State<SkillsTab> {
           children: [
             BorderButton(
                 width: buttonWidth,
-                text: R.strings.bloc,
+                text: 'bloc'.tr(),
                 onTap: () {
-                  _onSkillTap(R.strings.bloc);
+                  _onSkillTap('bloc');
                 }),
             BorderButton(
                 width: buttonWidth,
-                text: R.strings.riverpod,
+                text: 'riverpod'.tr(),
                 onTap: () {
-                  _onSkillTap(R.strings.riverpod);
+                  _onSkillTap('riverpod');
                 }),
             BorderButton(
                 width: buttonWidth,
-                text: R.strings.hive,
+                text: 'hive'.tr(),
                 onTap: () {
-                  _onSkillTap(R.strings.hive);
+                  _onSkillTap('hive');
                 }),
             BorderButton(
                 width: buttonWidth,
-                text: R.strings.sqflite,
+                text: 'sqflite'.tr(),
                 onTap: () {
-                  _onSkillTap(R.strings.sqflite);
+                  _onSkillTap('sqflite');
                 }),
             BorderButton(
                 width: buttonWidth,
-                text: R.strings.dio,
+                text: 'dio'.tr(),
                 onTap: () {
-                  _onSkillTap(R.strings.dio);
+                  _onSkillTap('dio');
                 }),
             BorderButton(
                 width: buttonWidth,
-                text: R.strings.freezed,
+                text: 'freezed'.tr(),
                 onTap: () {
-                  _onSkillTap(R.strings.freezed);
+                  _onSkillTap('freezed');
                 }),
             BorderButton(
                 width: buttonWidth,
-                text: R.strings.pwa,
+                text: 'pwa'.tr(),
                 onTap: () {
-                  _onSkillTap(R.strings.pwa);
+                  _onSkillTap('pwa');
                 }),
             BorderButton(
                 width: buttonWidth,
-                text: R.strings.responsiveUi,
+                text: 'responsiveUi'.tr(),
                 onTap: () {
-                  _onSkillTap(R.strings.responsiveUi);
+                  _onSkillTap('responsiveUi');
                 }),
             BorderButton(
                 width: buttonWidth,
-                text: R.strings.googleMap,
+                text: 'googleMap'.tr(),
                 onTap: () {
-                  _onSkillTap(R.strings.googleMap);
+                  _onSkillTap('googleMap');
                 }),
             BorderButton(
                 width: buttonWidth,
-                text: R.strings.openStreetMap,
+                text: 'openStreetMap'.tr(),
                 onTap: () {
-                  _onSkillTap(R.strings.openStreetMap);
+                  _onSkillTap('openStreetMap');
                 }),
             BorderButton(
                 width: buttonWidth,
-                text: R.strings.animations,
+                text: 'animations'.tr(),
                 onTap: () {
-                  _onSkillTap(R.strings.animations);
+                  _onSkillTap('animations');
                 }),
             BorderButton(
                 width: buttonWidth,
-                text: R.strings.cloudFirestore,
+                text: 'cloudFirestore'.tr(),
                 onTap: () {
-                  _onSkillTap(R.strings.cloudFirestore);
+                  _onSkillTap('cloudFirestore');
                 }),
           ],
         ),
@@ -263,7 +265,7 @@ class _SkillsTabState extends State<SkillsTab> {
       isFirstRun: SkillsTab.isFirstRun,
       firstRan: _firstRan,
       child: ExpansionSkillsView(
-        title: R.strings.androidSkills,
+        title: 'androidSkills'.tr(),
         child: Wrap(
           runAlignment: WrapAlignment.spaceBetween,
           crossAxisAlignment: WrapCrossAlignment.center,
@@ -272,39 +274,39 @@ class _SkillsTabState extends State<SkillsTab> {
           children: [
             BorderButton(
                 width: buttonWidth,
-                text: R.strings.mvvm,
+                text: 'mvvm'.tr(),
                 onTap: () {
-                  _onSkillTap(R.strings.mvvm);
+                  _onSkillTap('mvvm');
                 }),
             BorderButton(
                 width: buttonWidth,
-                text: R.strings.mvp,
+                text: 'mvp'.tr(),
                 onTap: () {
-                  _onSkillTap(R.strings.mvp);
+                  _onSkillTap('mvp');
                 }),
             BorderButton(
                 width: buttonWidth,
-                text: R.strings.retrofit,
+                text: 'retrofit'.tr(),
                 onTap: () {
-                  _onSkillTap(R.strings.retrofit);
+                  _onSkillTap('retrofit');
                 }),
             BorderButton(
                 width: buttonWidth,
-                text: R.strings.volley,
+                text: 'volley'.tr(),
                 onTap: () {
-                  _onSkillTap(R.strings.volley);
+                  _onSkillTap('volley');
                 }),
             BorderButton(
                 width: buttonWidth,
-                text: R.strings.sqlite,
+                text: 'sqlite'.tr(),
                 onTap: () {
-                  _onSkillTap(R.strings.sqlite);
+                  _onSkillTap('sqlite');
                 }),
             BorderButton(
                 width: buttonWidth,
-                text: R.strings.room,
+                text: 'room'.tr(),
                 onTap: () {
-                  _onSkillTap(R.strings.room);
+                  _onSkillTap('room');
                 }),
           ],
         ),

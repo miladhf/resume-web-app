@@ -1,5 +1,6 @@
 import 'dart:js' as js;
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:resume_web/R.dart';
 import 'package:resume_web/links.dart';
@@ -90,6 +91,8 @@ class _PortfolioTabState extends State<PortfolioTab> {
 
   @override
   Widget build(BuildContext context) {
+    EasyLocalization.of(context)?.locale;
+
     return Align(
       alignment: Alignment.topCenter,
       child: ListView(
@@ -109,9 +112,9 @@ class _PortfolioTabState extends State<PortfolioTab> {
                 onViewPicsTap: _onViewPicsBazyaftcheTap,
                 onDownloadLinkTap: _onDownloadLinkBazyaftcheTap,
                 image: R.images.bazyaftche_pic,
-                title: R.strings.bazyaftcheApp,
-                description: R.strings.bazyaftcheDescription,
-                downloadLinkText: R.strings.androidDownloadLink,
+                title: 'bazyaftcheApp'.tr(),
+                description: 'bazyaftcheDescription'.tr(),
+                downloadLinkText: 'androidDownloadLink'.tr(),
                 showPicsButton: true,
               ),
               PortfolioItem(
@@ -121,9 +124,9 @@ class _PortfolioTabState extends State<PortfolioTab> {
                 onViewPicsTap: _onViewPicsKomakTap,
                 onDownloadLinkTap: _onDownloadLinkKomakTap,
                 image: R.images.komak_pic,
-                title: R.strings.komakApp,
-                description: R.strings.komakDescription,
-                downloadLinkText: R.strings.androidDownloadLink,
+                title: 'komakApp'.tr(),
+                description: 'komakDescription'.tr(),
+                downloadLinkText: 'androidDownloadLink'.tr(),
                 showPicsButton: true,
               ),
               PortfolioItem(
@@ -133,9 +136,9 @@ class _PortfolioTabState extends State<PortfolioTab> {
                 onViewPicsTap: _onViewPicsTebebehanTap,
                 onDownloadLinkTap: _onDownloadLinkTebebehanTap,
                 image: R.images.tebebehan_pic,
-                title: R.strings.tebebehanApp,
-                description: R.strings.tebebehanDescription,
-                downloadLinkText: R.strings.cafeBazaarDownloadLink,
+                title: 'tebebehanApp'.tr(),
+                description: 'tebebehanDescription'.tr(),
+                downloadLinkText: 'cafeBazaarDownloadLink'.tr(),
                 showPicsButton: true,
               ),
               PortfolioItem(
@@ -145,9 +148,9 @@ class _PortfolioTabState extends State<PortfolioTab> {
                 onViewPicsTap: _onViewPicsFinancialManagementTap,
                 onDownloadLinkTap: _onDownloadLinkFinancialManagementTap,
                 image: R.images.financial_management_pic,
-                title: R.strings.financialManagementApp,
-                description: R.strings.financialManagementDescription,
-                downloadLinkText: R.strings.windowsDownloadLink,
+                title: 'financialManagementApp'.tr(),
+                description: 'financialManagementDescription'.tr(),
+                downloadLinkText: 'windowsDownloadLink'.tr(),
                 showPicsButton: true,
               ),
               PortfolioItem(
@@ -156,8 +159,8 @@ class _PortfolioTabState extends State<PortfolioTab> {
                 haveDownloadLink: false,
                 onViewPicsTap: _onViewPicsMarketTap,
                 image: R.images.market_pic,
-                title: R.strings.marketApp,
-                description: R.strings.marketDescription,
+                title: 'marketApp'.tr(),
+                description: 'marketDescription'.tr(),
                 showPicsButton: true,
               ),
             ],

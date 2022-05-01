@@ -1,6 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:resume_web/utils.dart';
 
-import '../../R.dart';
 import '../assets/image_asset.dart';
 import '../buttons/border_button.dart';
 import '../gradiant_box.dart';
@@ -63,7 +64,7 @@ class _PortfolioItemState extends State<PortfolioItem> {
       duration: duration,
       curve: Curves.easeInOut,
       child: GradiantBox(
-        width: 300,
+        width: 310,
         height: 370,
         defaultAnimate: false,
         isFirstRun: widget.isFirstRun,
@@ -92,14 +93,14 @@ class _PortfolioItemState extends State<PortfolioItem> {
                 style: Theme.of(context)
                     .textTheme
                     .bodyText1
-                    ?.copyWith(fontSize: 15),
+                    ?.copyWith(fontSize: Utils.isRtlLocale(context) ? 15 : 14),
               ),
             ),
             if (widget.showPicsButton) const SizedBox(height: 15),
             if (widget.showPicsButton)
               BorderButton(
                 width: 150,
-                text: R.strings.viewPics,
+                text: 'viewPics'.tr(),
                 onTap: widget.onViewPicsTap!,
               ),
             if (widget.haveDownloadLink) const SizedBox(height: 15),

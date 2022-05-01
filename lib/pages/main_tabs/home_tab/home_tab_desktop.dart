@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:resume_web/utils.dart';
 import 'package:resume_web/widgets/assets/svg_asset.dart';
 import 'package:resume_web/widgets/buttons/border_button.dart';
 import 'package:resume_web/widgets/gradiant_box.dart';
@@ -43,19 +45,21 @@ class _HomeTabDesktopState extends State<HomeTabDesktop> {
                 children: [
                   const SizedBox(height: 30),
                   Text(
-                    R.strings.myName,
+                    'myName'.tr(),
                     style: Theme.of(context).textTheme.headline1,
                   ),
                   Text(
-                    R.strings.myJob,
+                    'myJob'.tr(),
                     style: Theme.of(context).textTheme.headline1,
                   ),
                   SizedBox(
                     width: 400,
                     child: Text(
-                      R.strings.myDescription,
+                      'myDescription'.tr(),
                       style: Theme.of(context).textTheme.headline3,
-                      textAlign: TextAlign.right,
+                      textAlign: Utils.isRtlLocale(context)
+                          ? TextAlign.right
+                          : TextAlign.left,
                     ),
                   ),
                   const SizedBox(height: 30),
@@ -68,16 +72,13 @@ class _HomeTabDesktopState extends State<HomeTabDesktop> {
                   // const SizedBox(height: 50),
                   BorderButton(
                       onTap: widget.onEmailTap,
-                      text: R.strings.myEmail,
+                      text: 'myEmail'.tr(),
                       icon: SvgAsset(
-                        asset: R.icons.ic_email,
-                        width: 25,
-                        height: 15,
-                      )),
+                          asset: R.icons.ic_email, width: 25, height: 15)),
                   const SizedBox(height: 25),
                   BorderButton(
                       onTap: widget.onPhoneNumberTap,
-                      text: R.strings.myPhoneNumber,
+                      text: 'myPhoneNumber'.tr(),
                       icon: SvgAsset(
                         asset: R.icons.ic_phone,
                         width: 15,
@@ -86,7 +87,7 @@ class _HomeTabDesktopState extends State<HomeTabDesktop> {
                   const SizedBox(height: 25),
                   BorderButton(
                       onTap: widget.onLinkedinTap,
-                      text: R.strings.myLinkedin,
+                      text: 'myLinkedin'.tr(),
                       icon: SvgAsset(
                         asset: R.icons.ic_linkedin,
                         width: 25,
@@ -95,7 +96,7 @@ class _HomeTabDesktopState extends State<HomeTabDesktop> {
                   const SizedBox(height: 25),
                   BorderButton(
                       onTap: widget.onGithubTap,
-                      text: R.strings.myGithub,
+                      text: 'myGithub'.tr(),
                       icon: SvgAsset(
                         asset: R.icons.ic_github,
                         width: 25,

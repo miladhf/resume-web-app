@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:resume_web/widgets/buttons/border_button.dart';
 import 'package:resume_web/widgets/gradiant_box.dart';
@@ -41,22 +42,22 @@ class _HomeTabMobileState extends State<HomeTabMobile> {
                 const SizedBox(height: 30),
                 FittedBox(
                   child: Text(
-                    R.strings.myName,
+                    'myName'.tr(),
                     style: Theme.of(context).textTheme.headline1,
                   ),
                 ),
                 const SizedBox(height: 30),
                 FittedBox(
                   child: Text(
-                    R.strings.myJob,
+                    'myJob'.tr(),
                     style: Theme.of(context).textTheme.headline1,
                   ),
                 ),
                 const SizedBox(height: 30),
                 SizedBox(
-                  width: 350,
+                  width: 380,
                   child: Text(
-                    R.strings.myDescription,
+                    'myDescription'.tr(),
                     style: Theme.of(context).textTheme.headline3,
                     textAlign: TextAlign.center,
                   ),
@@ -71,7 +72,7 @@ class _HomeTabMobileState extends State<HomeTabMobile> {
                 children: [
                   BorderButton(
                       onTap: widget.onEmailTap,
-                      text: R.strings.myEmail,
+                      text: 'myEmail'.tr(),
                       icon: SvgAsset(
                         asset: R.icons.ic_email,
                         width: 25,
@@ -80,7 +81,7 @@ class _HomeTabMobileState extends State<HomeTabMobile> {
                   const SizedBox(height: 25),
                   BorderButton(
                       onTap: widget.onPhoneNumberTap,
-                      text: R.strings.myPhoneNumber,
+                      text: 'myPhoneNumber'.tr(),
                       icon: SvgAsset(
                         asset: R.icons.ic_phone,
                         width: 15,
@@ -89,7 +90,7 @@ class _HomeTabMobileState extends State<HomeTabMobile> {
                   const SizedBox(height: 25),
                   BorderButton(
                       onTap: widget.onLinkedinTap,
-                      text: R.strings.myLinkedin,
+                      text: 'myLinkedin'.tr(),
                       icon: SvgAsset(
                         asset: R.icons.ic_linkedin,
                         width: 25,
@@ -98,7 +99,7 @@ class _HomeTabMobileState extends State<HomeTabMobile> {
                   const SizedBox(height: 25),
                   BorderButton(
                       onTap: widget.onGithubTap,
-                      text: R.strings.myGithub,
+                      text: 'myGithub'.tr(),
                       icon: SvgAsset(
                         asset: R.icons.ic_github,
                         width: 25,

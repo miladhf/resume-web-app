@@ -3,6 +3,7 @@ import 'package:resume_web/pages/main_tabs/home_tab/home_tab.dart';
 import 'package:resume_web/pages/main_tabs/portfolio_tab/portfolio_tab.dart';
 import 'package:resume_web/pages/main_tabs/skills_tab/skills_tab.dart';
 
+import '../../utils.dart';
 import '../../widgets/app_bar/home_app_bar.dart';
 
 class HomePage extends StatefulWidget {
@@ -31,7 +32,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Directionality(
-      textDirection: TextDirection.rtl,
+      textDirection:
+          Utils.isRtlLocale(context) ? TextDirection.rtl : TextDirection.ltr,
       child: SafeArea(
         child: Scaffold(
           appBar: HomeAppBar(onSelectedChange: _onSelectedChange),

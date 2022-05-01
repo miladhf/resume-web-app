@@ -22,14 +22,14 @@ class SvgAsset extends StatelessWidget {
             'assets/$asset',
             width: width,
             height: height,
-            color: color ?? Colors.white,
+            color: color,
             fit: BoxFit.fill,
           )
         : SvgPicture.asset(
-            asset,
+      asset,
             width: width,
             height: height,
-            color: color ?? Colors.white,
+            color: color,
             fit: BoxFit.fill,
           );
   }
