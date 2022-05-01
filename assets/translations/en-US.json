@@ -6,7 +6,7 @@
   "myJob": "Flutter and Android developer",
   "myDescription": "Flutter and Android developer with 4 years of experience in application design and freelance work",
   "copied": "Copied",
-  "publicSkills": "General skills",
+  "generalSkills": "General skills",
   "flutterSkills": "Flutter skills",
   "androidSkills": "Android skills",
   "myEmail": "miladhasel@gmail.com",
@@ -58,5 +58,7 @@
   "farsi": "Farsi",
   "language": "Language",
   "java": "Java",
-  "flutter": "Flutter"
+  "flutter": "Flutter",
+  "adobeXd": "Adobe Xd",
+  "figma": "Figma"
 }

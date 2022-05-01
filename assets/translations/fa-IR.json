@@ -6,7 +6,7 @@
   "myJob": "برنامه نویس فلاتر و اندروید",
   "myDescription": "برنامه نویس فلاتر و برنامه نویس اندروید با زبان java با 4 سال سابقه طراحی اپلیکیشن  و کارهای فریلنسری",
   "copied": "کپی شد",
-  "publicSkills": "مهارت های عمومی",
+  "generalSkills": "مهارت های عمومی",
   "flutterSkills": "مهارت های Flutter",
   "androidSkills": "مهارت های Android",
   "myEmail": "miladhasel@gmail.com",
@@ -58,5 +58,7 @@
   "farsi": "فارسی",
   "language": "زبان",
   "java": "Java",
-  "flutter": "Flutter"
+  "flutter": "Flutter",
+  "adobeXd": "Adobe Xd",
+  "figma": "Figma"
 }

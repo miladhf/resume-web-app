@@ -69,7 +69,7 @@ class _SkillsTabState extends State<SkillsTab> {
                 SkillsTab.isFirstRun ? publicSkillsOffset : const Offset(0, 0),
             duration: duration,
             curve: Curves.easeInOut,
-            child: buildPublicSkillsView(
+            child: buildGeneralSkillsView(
               buttonWidth,
             )),
         const SizedBox(height: 20),
@@ -95,13 +95,13 @@ class _SkillsTabState extends State<SkillsTab> {
     );
   }
 
-  GradiantBox buildPublicSkillsView(double buttonWidth) {
+  GradiantBox buildGeneralSkillsView(double buttonWidth) {
     return GradiantBox(
       defaultAnimate: false,
       isFirstRun: SkillsTab.isFirstRun,
       firstRan: _firstRan,
       child: ExpansionSkillsView(
-        title: 'publicSkills'.tr(),
+        title: 'generalSkills'.tr(),
         child: Wrap(
           runAlignment: WrapAlignment.spaceBetween,
           crossAxisAlignment: WrapCrossAlignment.center,
@@ -161,6 +161,18 @@ class _SkillsTabState extends State<SkillsTab> {
                 text: 'firebase'.tr(),
                 onTap: () {
                   _onSkillTap('firebase');
+                }),
+            BorderButton(
+                width: buttonWidth,
+                text: 'adobeXd'.tr(),
+                onTap: () {
+                  _onSkillTap('adobeXd');
+                }),
+            BorderButton(
+                width: buttonWidth,
+                text: 'figma'.tr(),
+                onTap: () {
+                  _onSkillTap('figma');
                 }),
           ],
         ),
