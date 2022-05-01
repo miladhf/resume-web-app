@@ -36,7 +36,7 @@ class PortfolioItem extends StatefulWidget {
 
 class _PortfolioItemState extends State<PortfolioItem> {
   double opacity = 0;
-  var duration = const Duration(seconds: 1);
+  var duration = const Duration(milliseconds: 1500);
 
   void _animate() async {
     await Future.delayed(const Duration(seconds: 1));
