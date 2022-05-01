@@ -1,6 +1,6 @@
 # resume_web
 
-A new Flutter project.
+This is a portfolio web project built with Flutter.
 
 ## Getting Started
 
