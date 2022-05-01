@@ -74,53 +74,56 @@ class _PortfolioImagesDialogState extends State<PortfolioImagesDialog> {
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
-    return Dialog(
-      backgroundColor: Colors.transparent,
-      insetPadding: EdgeInsets.zero,
-      child: SizedBox(
-        height: height,
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            PhotoViewGallery.builder(
-              scrollPhysics: const BouncingScrollPhysics(),
-              builder: (BuildContext context, int index) {
-                return PhotoViewGalleryPageOptions(
-                  imageProvider: _getImageProvider(index),
-                  minScale: 0.2,
-                  maxScale: 2.0,
-                  controller: _photoViewController,
-                  filterQuality: FilterQuality.high,
-                  initialScale: PhotoViewComputedScale.contained * 1,
-                  heroAttributes: PhotoViewHeroAttributes(tag: index),
-                );
-              },
-              itemCount: widget.photos.length,
-              loadingBuilder: (context, event) => Center(
-                child: SizedBox(
-                  width: 50.0,
-                  height: 50.0,
-                  child: CircularProgressIndicator(
-                    color: Theme.of(context).primaryColor,
-                    value: event == null
-                        ? 0
-                        : event.cumulativeBytesLoaded /
-                            event.expectedTotalBytes!,
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Dialog(
+        backgroundColor: Colors.transparent,
+        insetPadding: EdgeInsets.zero,
+        child: SizedBox(
+          height: height,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              PhotoViewGallery.builder(
+                scrollPhysics: const BouncingScrollPhysics(),
+                builder: (BuildContext context, int index) {
+                  return PhotoViewGalleryPageOptions(
+                    imageProvider: _getImageProvider(index),
+                    minScale: 0.2,
+                    maxScale: 2.0,
+                    controller: _photoViewController,
+                    filterQuality: FilterQuality.high,
+                    initialScale: PhotoViewComputedScale.contained * 1,
+                    heroAttributes: PhotoViewHeroAttributes(tag: index),
+                  );
+                },
+                itemCount: widget.photos.length,
+                loadingBuilder: (context, event) => Center(
+                  child: SizedBox(
+                    width: 50.0,
+                    height: 50.0,
+                    child: CircularProgressIndicator(
+                      color: Theme.of(context).primaryColor,
+                      value: event == null
+                          ? 0
+                          : event.cumulativeBytesLoaded /
+                              event.expectedTotalBytes!,
+                    ),
                   ),
                 ),
+                backgroundDecoration:
+                    const BoxDecoration(color: Colors.transparent),
+                pageController: pageController,
+                onPageChanged: onPageChanged,
               ),
-              backgroundDecoration:
-                  const BoxDecoration(color: Colors.transparent),
-              pageController: pageController,
-              onPageChanged: onPageChanged,
-            ),
-            buildTextCount(height),
-            buildArrowButtons(height),
-            Align(
-              alignment: Alignment.topLeft,
-              child: buildCloseButton(),
-            ),
-          ],
+              buildTextCount(height),
+              buildArrowButtons(height),
+              Align(
+                alignment: Alignment.topLeft,
+                child: buildCloseButton(),
+              ),
+            ],
+          ),
         ),
       ),
     );
