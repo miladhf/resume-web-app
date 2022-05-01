@@ -121,12 +121,15 @@ class _Strings {
 
   var marketDescription =
       'اپلیکیشنی فروشگاهی برای فروش محصولات. اپلیکیشین به دلیل فعال نبودن سرور ، غیر فعال است.';
+
+  var myGithub = 'miladhf';
 }
 
 class _Icons {
   final ic_email = 'assets/icons/ic_email.svg';
   final ic_linkedin = 'assets/icons/ic_linkedin.svg';
   final ic_phone = 'assets/icons/ic_phone.svg';
+  final ic_github = 'assets/icons/ic_github.svg';
 }
 
 class _Images {

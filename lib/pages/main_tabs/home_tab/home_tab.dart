@@ -43,6 +43,10 @@ class _HomeTabState extends State<HomeTab> {
     js.context.callMethod('open', [Links.link.linkedin]);
   }
 
+  _onGithubTap() {
+    js.context.callMethod('open', [Links.link.github]);
+  }
+
   _firstRan() {
     HomeTab.isFirstRun = false;
   }
@@ -55,13 +59,15 @@ class _HomeTabState extends State<HomeTab> {
             onEmailTap: _onEmailTap,
             onPhoneNumberTap: _onPhoneNumberTap,
             onLinkedinTap: _onLinkedinTap,
+            onGithubTap: _onGithubTap,
             firstRan: _firstRan,
             isFirstRun: HomeTab.isFirstRun,
           )
         : HomeTabMobile(
-            onEmailTap: _onEmailTap,
+      onEmailTap: _onEmailTap,
             onPhoneNumberTap: _onPhoneNumberTap,
             onLinkedinTap: _onLinkedinTap,
+            onGithubTap: _onGithubTap,
             firstRan: _firstRan,
             isFirstRun: HomeTab.isFirstRun,
           );

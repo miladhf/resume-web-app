@@ -19,6 +19,7 @@ class _Link {
       : R.outputs.komak_apk;
   final tebebehan = 'https://cafebazaar.ir/app/com.example.omidmilad.tebebehan';
   final linkedin = 'https://www.linkedin.com/in/milad-haselforoush-787000217/';
+  var github = 'https://github.com/miladhf';
 }
 
 class _Screenshots {

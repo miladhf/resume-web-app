@@ -6,7 +6,7 @@ import '../../../R.dart';
 import '../../../widgets/assets/svg_asset.dart';
 
 class HomeTabMobile extends StatefulWidget {
-  Function() onEmailTap, onPhoneNumberTap, onLinkedinTap;
+  Function() onEmailTap, onPhoneNumberTap, onLinkedinTap, onGithubTap;
   bool isFirstRun;
   Function() firstRan;
 
@@ -15,6 +15,7 @@ class HomeTabMobile extends StatefulWidget {
     required this.onEmailTap,
     required this.onPhoneNumberTap,
     required this.onLinkedinTap,
+    required this.onGithubTap,
     required this.isFirstRun,
     required this.firstRan,
   }) : super(key: key);
@@ -60,11 +61,10 @@ class _HomeTabMobileState extends State<HomeTabMobile> {
                     textAlign: TextAlign.center,
                   ),
                 ),
-                const SizedBox(height: 30),
               ],
             ),
             const SizedBox(
-              height: 50,
+              height: 40,
             ),
             Expanded(
               child: Column(
@@ -92,6 +92,15 @@ class _HomeTabMobileState extends State<HomeTabMobile> {
                       text: R.strings.myLinkedin,
                       icon: SvgAsset(
                         asset: R.icons.ic_linkedin,
+                        width: 25,
+                        height: 25,
+                      )),
+                  const SizedBox(height: 25),
+                  BorderButton(
+                      onTap: widget.onGithubTap,
+                      text: R.strings.myGithub,
+                      icon: SvgAsset(
+                        asset: R.icons.ic_github,
                         width: 25,
                         height: 25,
                       )),
