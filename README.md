@@ -1,6 +1,7 @@
-# resume_web
+# resume web app
 
 This is a portfolio web project built with Flutter.
+
 web app: https://miladhf.github.io
 
 ## Getting Started
