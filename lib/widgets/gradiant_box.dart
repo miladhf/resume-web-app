@@ -56,14 +56,14 @@ class _GradiantBoxState extends State<GradiantBox>
       parent: controller!,
       curve: const Interval(
         0,
-        0.7,
+        0.6,
         curve: Curves.easeInOut,
       ),
     ));
     opacityAnimation = Tween<double>(begin: 0, end: 1).animate(CurvedAnimation(
       parent: controller!,
       curve: const Interval(
-        0.4,
+        0.6,
         1,
         curve: Curves.easeInOut,
       ),
