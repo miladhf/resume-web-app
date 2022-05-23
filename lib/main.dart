@@ -68,7 +68,18 @@ class MyApp extends StatelessWidget {
             const ResponsiveBreakpoint.resize(1000, name: DESKTOP),
           ],
           background: Container(color: const Color(0xFFF5F5F5))),
-      home: const HomePage(),
+      initialRoute: '/',
+      onGenerateRoute: (settings) {
+        if (settings.name == '/en') {
+          context.setLocale(const Locale('en', 'US'));
+        } else if (settings.name == '/fa') {
+          context.setLocale(const Locale('fa', 'IR'));
+        }
+
+        if (settings.name == '/') {
+          return MaterialPageRoute(builder: (_) => const HomePage());
+        }
+      },
     );
   }
 }
