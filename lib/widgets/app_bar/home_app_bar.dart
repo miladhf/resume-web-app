@@ -23,30 +23,30 @@ class HomeAppBar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _HomeAppBarState extends State<HomeAppBar> {
-  List<bool> isSelected = [true, false, false];
+  List<bool> isSelected = [true, false, false, false];
 
-  _onHomeTap() {
+  void _setSelected(int index) {
     setState(() {
       _unSelectAll();
-      isSelected[0] = true;
+      isSelected[index] = true;
     });
-    widget.onSelectedChange(0);
+    widget.onSelectedChange(index);
+  }
+
+  _onHomeTap() {
+    _setSelected(0);
   }
 
   _onSkillsTap() {
-    setState(() {
-      _unSelectAll();
-      isSelected[1] = true;
-    });
-    widget.onSelectedChange(1);
+    _setSelected(1);
+  }
+
+  _onExperiencesTap() {
+    _setSelected(2);
   }
 
   _onPortfolioTap() {
-    setState(() {
-      _unSelectAll();
-      isSelected[2] = true;
-    });
-    widget.onSelectedChange(2);
+    _setSelected(3);
   }
 
   void _unSelectAll() {
@@ -67,32 +67,53 @@ class _HomeAppBarState extends State<HomeAppBar> {
       color: Colors.transparent,
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
+          Expanded(
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              alignment: Utils.isRtlLocale(context)
+                  ? Alignment.centerRight
+                  : Alignment.centerLeft,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  AppBarButton(
+                    onTap: _onHomeTap,
+                    text: 'home'.tr(),
+                    isSelected: isSelected[0],
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  AppBarButton(
+                    onTap: _onSkillsTap,
+                    text: 'skills'.tr(),
+                    isSelected: isSelected[1],
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  AppBarButton(
+                    onTap: _onExperiencesTap,
+                    text: 'workExperiences'.tr(),
+                    isSelected: isSelected[2],
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  AppBarButton(
+                    onTap: _onPortfolioTap,
+                    text: 'portfolio'.tr(),
+                    isSelected: isSelected[3],
+                  ),
+                ],
+              ),
+            ),
+          ),
           const SizedBox(
-            width: 10,
+            width: 20,
           ),
-          AppBarButton(
-            onTap: _onHomeTap,
-            text: 'home'.tr(),
-            isSelected: isSelected[0],
-          ),
-          const SizedBox(
-            width: 10,
-          ),
-          AppBarButton(
-            onTap: _onSkillsTap,
-            text: 'skills'.tr(),
-            isSelected: isSelected[1],
-          ),
-          const SizedBox(
-            width: 10,
-          ),
-          AppBarButton(
-            onTap: _onPortfolioTap,
-            text: 'portfolio'.tr(),
-            isSelected: isSelected[2],
-          ),
-          const Spacer(),
           buildLanguageDropdown()
         ],
       ),

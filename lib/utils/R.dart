@@ -15,6 +15,7 @@ class _Icons {
 }
 
 class _Images {
+  final vira_pic = 'assets/images/vira.png';
   final bazyaftche_pic = 'assets/images/bazyaftche_pic.png';
   final komak_pic = 'assets/images/komak_pic.png';
   final tebebehan_pic = 'assets/images/tebebehan_pic.png';

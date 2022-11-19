@@ -31,6 +31,7 @@ class AppBarButton extends StatelessWidget {
               : null,
           child: Text(
             text,
+            maxLines: 1,
             style: Theme.of(context).textTheme.headline2?.copyWith(
                   color: isSelected ? Colors.white : Colors.grey,
                 ),

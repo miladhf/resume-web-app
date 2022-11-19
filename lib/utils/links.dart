@@ -20,6 +20,8 @@ class _Link {
   final tebebehan = 'https://cafebazaar.ir/app/com.example.omidmilad.tebebehan';
   final linkedin = 'https://www.linkedin.com/in/milad-haselforoush/';
   var github = 'https://github.com/miladhf';
+
+  var vira = 'https://pishgamvira.com/';
 }
 
 class _Screenshots {
