@@ -201,6 +201,12 @@ class _SkillsTabState extends State<SkillsTab> {
                 }),
             BorderButton(
                 width: buttonWidth,
+                text: 'GetX'.tr(),
+                onTap: () {
+                  _onSkillTap('GetX');
+                }),
+            BorderButton(
+                width: buttonWidth,
                 text: 'riverpod'.tr(),
                 onTap: () {
                   _onSkillTap('riverpod');
