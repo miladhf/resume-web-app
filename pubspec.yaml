@@ -91,12 +91,9 @@ flutter:
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   fonts:
-    - family: shabnam
+    - family: peyda
       fonts:
-        - asset: assets/fonts/Shabnam.ttf
-    - family: shabnam-bold
-      fonts:
-        - asset: assets/fonts/Shabnam-Bold.ttf
+        - asset: assets/fonts/Peyda-Regular.ttf
 
 
   # For details regarding fonts from package dependencies,

@@ -14,26 +14,32 @@ class AppBarButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-        onPressed: onTap,
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(Colors.transparent),
-          shadowColor: MaterialStateProperty.all(Colors.transparent),
-        ),
+    return InkWell(
+        onTap: onTap,
+        highlightColor: const Color(0x3164CFB3),
         child: Container(
-          padding: const EdgeInsets.only(bottom: 5),
+          padding:
+              const EdgeInsets.only(bottom: 8, top: 5, left: 18, right: 18),
           decoration: isSelected
               ? const BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(width: 1, color: Colors.white),
+                  gradient: LinearGradient(
+                    begin: Alignment(0, -1),
+                    end: Alignment(0, 1),
+                    colors: [
+                      Color(0x0064CFB3),
+                      Color(0x3164CFB3),
+                      // Color(0xCC64CFB3)
+                    ],
                   ),
-                )
+                  border: Border(
+                    bottom: BorderSide(width: 1.5, color: Color(0xCC64CFB3)),
+                  ))
               : null,
           child: Text(
             text,
             maxLines: 1,
             style: Theme.of(context).textTheme.headline2?.copyWith(
-                  color: isSelected ? Colors.white : Colors.grey,
+              color: Colors.white,
                 ),
           ),
         ));

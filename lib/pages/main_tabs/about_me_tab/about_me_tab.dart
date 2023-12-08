@@ -4,23 +4,23 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:resume_web/pages/main_tabs/home_tab/home_tab_desktop.dart';
-import 'package:resume_web/pages/main_tabs/home_tab/home_tab_mobile.dart';
+import 'package:resume_web/pages/main_tabs/about_me_tab/about_me_tab_desktop.dart';
+import 'package:resume_web/pages/main_tabs/about_me_tab/about_me_tab_mobile.dart';
 
 import '../../../data/user_data.dart';
 import '../../../utils/R.dart';
 import '../../../widgets/toasts.dart';
 
-class HomeTab extends StatefulWidget {
+class AboutMeTab extends StatefulWidget {
   static bool isFirstRun = true;
 
-  const HomeTab({Key? key}) : super(key: key);
+  const AboutMeTab({Key? key}) : super(key: key);
 
   @override
-  _HomeTabState createState() => _HomeTabState();
+  _AboutMeTabState createState() => _AboutMeTabState();
 }
 
-class _HomeTabState extends State<HomeTab> {
+class _AboutMeTabState extends State<AboutMeTab> {
   _onEmailTap() async {
     await Clipboard.setData(ClipboardData(text: UserData.getMyData().email));
     if (defaultTargetPlatform == TargetPlatform.android ||
@@ -50,7 +50,7 @@ class _HomeTabState extends State<HomeTab> {
   }
 
   _firstRan() {
-    HomeTab.isFirstRun = false;
+    AboutMeTab.isFirstRun = false;
   }
 
   @override
@@ -59,21 +59,21 @@ class _HomeTabState extends State<HomeTab> {
     EasyLocalization.of(context)?.locale;
 
     return width >= R.size.mobileWidth
-        ? HomeTabDesktop(
+        ? AboutMeDesktop(
             onEmailTap: _onEmailTap,
             onPhoneNumberTap: _onPhoneNumberTap,
             onLinkedinTap: _onLinkedinTap,
             onGithubTap: _onGithubTap,
             firstRan: _firstRan,
-            isFirstRun: HomeTab.isFirstRun,
+            isFirstRun: AboutMeTab.isFirstRun,
           )
-        : HomeTabMobile(
-      onEmailTap: _onEmailTap,
+        : AboutMeMobile(
+            onEmailTap: _onEmailTap,
             onPhoneNumberTap: _onPhoneNumberTap,
             onLinkedinTap: _onLinkedinTap,
             onGithubTap: _onGithubTap,
             firstRan: _firstRan,
-            isFirstRun: HomeTab.isFirstRun,
+            isFirstRun: AboutMeTab.isFirstRun,
           );
   }
 }

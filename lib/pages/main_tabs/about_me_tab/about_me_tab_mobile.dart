@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:resume_web/utils/utils.dart';
-import 'package:resume_web/widgets/assets/svg_asset.dart';
 import 'package:resume_web/widgets/buttons/border_button.dart';
 import 'package:resume_web/widgets/gradiant_box.dart';
 
 import '../../../data/user_data.dart';
 import '../../../utils/R.dart';
+import '../../../widgets/assets/svg_asset.dart';
 
-class HomeTabDesktop extends StatefulWidget {
+class AboutMeMobile extends StatefulWidget {
   Function() onEmailTap, onPhoneNumberTap, onLinkedinTap, onGithubTap;
   bool isFirstRun;
   Function() firstRan;
 
-  HomeTabDesktop({
+  AboutMeMobile({
     Key? key,
     required this.onEmailTap,
     required this.onPhoneNumberTap,
@@ -23,58 +22,62 @@ class HomeTabDesktop extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _HomeTabDesktopState createState() => _HomeTabDesktopState();
+  _AboutMeMobileState createState() => _AboutMeMobileState();
 }
 
-class _HomeTabDesktopState extends State<HomeTabDesktop> {
+class _AboutMeMobileState extends State<AboutMeMobile> {
   @override
   Widget build(BuildContext context) {
     return GradiantBox(
         defaultAnimate: true,
-        height: 350,
+        height: 500,
+        width: MediaQuery.of(context).size.width,
         isFirstRun: widget.isFirstRun,
         firstRan: widget.firstRan,
-        child: Padding(
-          padding: const EdgeInsets.only(right: 15, left: 15),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const SizedBox(height: 30),
-                  Text(
+        child: Column(
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(height: 30),
+                FittedBox(
+                  child: Text(
                     UserData.getMyData().name,
                     style: Theme.of(context).textTheme.headline1,
                   ),
-                  Text(
+                ),
+                const SizedBox(height: 30),
+                FittedBox(
+                  child: Text(
                     UserData.getMyData().jobTitle,
                     style: Theme.of(context).textTheme.headline1,
                   ),
-                  SizedBox(
-                    width: 400,
-                    child: Text(
-                      UserData.getMyData().description,
-                      style: Theme.of(context).textTheme.headline3,
-                      textAlign: Utils.isRtlLocale(context)
-                          ? TextAlign.right
-                          : TextAlign.left,
-                    ),
+                ),
+                const SizedBox(height: 30),
+                SizedBox(
+                  width: 380,
+                  child: Text(
+                    UserData.getMyData().description,
+                    style: Theme.of(context).textTheme.headline3,
+                    textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 30),
-                ],
-              ),
-              const Spacer(),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 40,
+            ),
+            Expanded(
+              child: Column(
                 children: [
-                  // const SizedBox(height: 50),
                   BorderButton(
                       onTap: widget.onEmailTap,
                       text: UserData.getMyData().email,
                       icon: SvgAsset(
-                          asset: R.icons.ic_email, width: 25, height: 15)),
+                        asset: R.icons.ic_email,
+                        width: 25,
+                        height: 15,
+                      )),
                   const SizedBox(height: 25),
                   BorderButton(
                       onTap: widget.onPhoneNumberTap,
@@ -104,8 +107,8 @@ class _HomeTabDesktopState extends State<HomeTabDesktop> {
                       )),
                 ],
               ),
-            ],
-          ),
+            ),
+          ],
         ));
   }
 }

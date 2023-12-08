@@ -5,13 +5,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 class SvgAsset extends StatelessWidget {
   String asset;
   Color? color;
-  double width, height;
+  double? width, height;
 
   SvgAsset({
     Key? key,
     required this.asset,
-    required this.width,
-    required this.height,
+    this.width,
+    this.height,
     this.color,
   }) : super(key: key);
 

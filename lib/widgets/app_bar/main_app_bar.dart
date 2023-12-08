@@ -6,23 +6,23 @@ import 'package:resume_web/widgets/assets/svg_asset.dart';
 
 import 'app_bar_button.dart';
 
-class HomeAppBar extends StatefulWidget implements PreferredSizeWidget {
+class MainAppBar extends StatefulWidget implements PreferredSizeWidget {
   var height = 100.0;
   Function(int selectedIndex) onSelectedChange;
 
-  HomeAppBar({
+  MainAppBar({
     Key? key,
     required this.onSelectedChange,
   }) : super(key: key);
 
   @override
-  State<HomeAppBar> createState() => _HomeAppBarState();
+  State<MainAppBar> createState() => _MainAppBarState();
 
   @override
   Size get preferredSize => Size.fromHeight(height);
 }
 
-class _HomeAppBarState extends State<HomeAppBar> {
+class _MainAppBarState extends State<MainAppBar> {
   List<bool> isSelected = [true, false, false, false];
 
   void _setSelected(int index) {
@@ -80,7 +80,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
                 children: [
                   AppBarButton(
                     onTap: _onHomeTap,
-                    text: 'home'.tr(),
+                    text: 'aboutMe'.tr(),
                     isSelected: isSelected[0],
                   ),
                   const SizedBox(
@@ -114,7 +114,10 @@ class _HomeAppBarState extends State<HomeAppBar> {
           const SizedBox(
             width: 20,
           ),
-          buildLanguageDropdown()
+          buildLanguageDropdown(),
+          const SizedBox(
+            width: 20,
+          ),
         ],
       ),
     );
@@ -125,23 +128,68 @@ class _HomeAppBarState extends State<HomeAppBar> {
       padding: const EdgeInsets.only(bottom: 5),
       child: DropdownButton(
         isDense: true,
-        dropdownColor: Theme.of(context).colorScheme.secondary,
+        dropdownColor: const Color(0xFF313131),
         borderRadius: BorderRadius.circular(20),
         underline: Container(),
         focusColor: Colors.transparent,
         elevation: 0,
-        hint: Text(
-          'language'.tr(),
-          style: Theme.of(context).textTheme.headline2,
+        hint: Container(
+          width: 90,
+          height: 35,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            // color: const Color(0xFF313131),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(
+                width: 8,
+              ),
+              Container(
+                width: 20,
+                height: 20,
+                margin: const EdgeInsets.symmetric(vertical: 3),
+                padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
+                alignment: Alignment.center,
+                decoration: ShapeDecoration(
+                  color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(7)),
+                ),
+                child: SvgAsset(
+                  asset: Utils.isRtlLocale(context)
+                      ? R.icons.ic_iran
+                      : R.icons.ic_usa,
+                ),
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              Expanded(
+                  child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  Utils.isRtlLocale(context) ? 'farsi'.tr() : 'english'.tr(),
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline2
+                      ?.copyWith(fontSize: 15),
+                ),
+              )),
+              const Icon(
+                Icons.arrow_drop_down,
+                color: Colors.white,
+                size: 20,
+              )
+            ],
+          ),
         ),
         alignment: Utils.isRtlLocale(context)
             ? Alignment.centerLeft
             : Alignment.centerRight,
-        icon: const Icon(
-          Icons.arrow_drop_down,
-          color: Colors.white,
-          size: 25,
-        ),
+        icon: const SizedBox.shrink(),
         items: ['farsi'.tr(), 'english'.tr()].map((String value) {
           return DropdownMenuItem<String>(
             alignment: Alignment.center,

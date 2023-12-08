@@ -33,28 +33,37 @@ class MyApp extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       theme: ThemeData(
-          fontFamily: 'shabnam',
-          primarySwatch: Colors.blue,
-          scaffoldBackgroundColor: const Color(0xff232323),
-          primaryColor: const Color(0xff5900EA),
+          fontFamily: 'peyda',
+          scaffoldBackgroundColor: const Color(0xff101015),
+          primaryColor: const Color(0xff64CFB3),
           colorScheme: ColorScheme.fromSwatch(
             primarySwatch: Colors.blue,
           ).copyWith(
-            // secondary: const Color(0xffFF00C7),
+            primary: const Color(0xff64CFB3),
             secondary: const Color(0xff8702b4),
-
-            background: const Color(0xff232323),
+            background: const Color(0xff101015),
           ),
           textTheme: TextTheme(
             headline1: const TextStyle(
-                fontFamily: 'shabnam-bold', fontSize: 30, color: Colors.white),
+              fontFamily: 'peyda',
+              fontSize: 30,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
             headline2: const TextStyle(
-                fontFamily: 'shabnam-bold', fontSize: 17, color: Colors.white),
+              fontFamily: 'peyda',
+              fontSize: 17,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
             headline3: const TextStyle(
-                fontFamily: 'shabnam-bold', fontSize: 16, color: Colors.white),
+              fontFamily: 'peyda',
+              fontSize: 16,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
             bodyText1: TextStyle(
-                fontFamily:
-                    Utils.isRtlLocale(context) ? 'shabnam' : 'shabnam-bold',
+                fontFamily: Utils.isRtlLocale(context) ? 'peyda' : 'peyda',
                 fontSize: 14,
                 color: Colors.white),
           )),

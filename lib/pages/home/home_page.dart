@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:resume_web/pages/main_tabs/about_me_tab/about_me_tab.dart';
 import 'package:resume_web/pages/main_tabs/experiences_tab/experiences_tab.dart';
-import 'package:resume_web/pages/main_tabs/home_tab/home_tab.dart';
 import 'package:resume_web/pages/main_tabs/portfolio_tab/portfolio_tab.dart';
 import 'package:resume_web/pages/main_tabs/skills_tab/skills_tab.dart';
 
 import '../../utils/utils.dart';
-import '../../widgets/app_bar/home_app_bar.dart';
+import '../../widgets/app_bar/main_app_bar.dart';
 
 class HomePage extends StatefulWidget {
   static final navigatorKey = GlobalKey<NavigatorState>();
@@ -18,7 +18,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List tabs = const [
-    HomeTab(),
+    AboutMeTab(),
     SkillsTab(),
     ExperiencesTab(),
     PortfolioTab(),
@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
           Utils.isRtlLocale(context) ? TextDirection.rtl : TextDirection.ltr,
       child: SafeArea(
         child: Scaffold(
-          appBar: HomeAppBar(onSelectedChange: _onSelectedChange),
+          appBar: MainAppBar(onSelectedChange: _onSelectedChange),
           body: tabs[index],
         ),
       ),
