@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:resume_web/pages/main_tabs/home_tab/home_tab_desktop.dart';
 import 'package:resume_web/pages/main_tabs/home_tab/home_tab_mobile.dart';
-import 'package:resume_web/utils/links.dart';
 
+import '../../../data/user_data.dart';
 import '../../../utils/R.dart';
 import '../../../widgets/toasts.dart';
 
@@ -22,7 +22,7 @@ class HomeTab extends StatefulWidget {
 
 class _HomeTabState extends State<HomeTab> {
   _onEmailTap() async {
-    await Clipboard.setData(ClipboardData(text: 'myEmail'.tr()));
+    await Clipboard.setData(ClipboardData(text: UserData.getMyData().email));
     if (defaultTargetPlatform == TargetPlatform.android ||
         defaultTargetPlatform == TargetPlatform.iOS) {
       return;
@@ -31,7 +31,8 @@ class _HomeTabState extends State<HomeTab> {
   }
 
   _onPhoneNumberTap() async {
-    await Clipboard.setData(ClipboardData(text: 'myPhoneNumber'.tr()));
+    await Clipboard.setData(
+        ClipboardData(text: UserData.getMyData().phoneNumber));
     if (defaultTargetPlatform == TargetPlatform.android ||
         defaultTargetPlatform == TargetPlatform.iOS) {
       return;
@@ -41,11 +42,11 @@ class _HomeTabState extends State<HomeTab> {
   }
 
   _onLinkedinTap() {
-    js.context.callMethod('open', [Links.link.linkedin]);
+    js.context.callMethod('open', [UserData.getMyData().linkedinLink]);
   }
 
   _onGithubTap() {
-    js.context.callMethod('open', [Links.link.github]);
+    js.context.callMethod('open', [UserData.getMyData().githubLink]);
   }
 
   _firstRan() {

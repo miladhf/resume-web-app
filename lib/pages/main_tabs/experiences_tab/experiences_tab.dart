@@ -2,9 +2,9 @@ import 'dart:js' as js;
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:resume_web/utils/R.dart';
-import 'package:resume_web/utils/links.dart';
+import 'package:resume_web/models/work_experience.dart';
 
+import '../../../data/work_experience_data.dart';
 import '../../../widgets/list_items/porfolio_item.dart';
 
 class ExperiencesTab extends StatefulWidget {
@@ -21,8 +21,8 @@ class _ExperiencesTabState extends State<ExperiencesTab> {
     ExperiencesTab.isFirstRun = false;
   }
 
-  _onShowSiteTap() {
-    js.context.callMethod('open', [Links.link.vira]);
+  _onShowSiteTap(WorkExperience experience) {
+    js.context.callMethod('open', [experience.link]);
   }
 
   @override
@@ -41,18 +41,21 @@ class _ExperiencesTabState extends State<ExperiencesTab> {
             alignment: WrapAlignment.center,
             runAlignment: WrapAlignment.center,
             children: [
-              PortfolioItem(
-                isFirstRun: ExperiencesTab.isFirstRun,
-                firstRan: _firstRan,
-                haveDownloadLink: true,
-                onDownloadLinkTap: _onShowSiteTap,
-                image: R.images.vira_pic,
-                title: 'viraCompany'.tr(),
-                description: 'viraDescription'.tr(),
-                downloadLinkText: 'seeWebsite'.tr(),
-                tagText: 'flutter'.tr(),
-                showPicsButton: false,
-              ),
+              for (var experience in WorkExperiencesData.getWorkExperiences())
+                PortfolioItem(
+                  isFirstRun: ExperiencesTab.isFirstRun,
+                  firstRan: _firstRan,
+                  haveDownloadLink: experience.haveDownloadLink,
+                  onDownloadLinkTap: () {
+                    _onShowSiteTap(experience);
+                  },
+                  image: experience.image,
+                  title: experience.title,
+                  description: experience.description,
+                  downloadLinkText: experience.downloadLinkText,
+                  tagText: experience.tagText,
+                  showPicsButton: experience.showPicsButton,
+                ),
             ],
           ),
         ],

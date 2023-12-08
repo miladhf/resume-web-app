@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:resume_web/data/skills_data.dart';
 import 'package:resume_web/pages/main_tabs/skills_tab/epansion_skills_view.dart';
 import 'package:resume_web/widgets/buttons/border_button.dart';
 
@@ -108,72 +109,13 @@ class _SkillsTabState extends State<SkillsTab> {
           spacing: 50,
           runSpacing: 20,
           children: [
-            BorderButton(
-                width: buttonWidth,
-                text: 'selfLearning'.tr(),
-                onTap: () {
-                  _onSkillTap('selfLearning');
-                }),
-            BorderButton(
-                width: buttonWidth,
-                text: 'git'.tr(),
-                onTap: () {
-                  _onSkillTap('git');
-                }),
-            BorderButton(
-                width: buttonWidth,
-                text: 'scrum'.tr(),
-                onTap: () {
-                  _onSkillTap('scrum');
-                }),
-            BorderButton(
-                width: buttonWidth,
-                text: 'jwt'.tr(),
-                onTap: () {
-                  _onSkillTap('jwt');
-                }),
-            BorderButton(
-                width: buttonWidth,
-                text: 'oop'.tr(),
-                onTap: () {
-                  _onSkillTap('oop');
-                }),
-            BorderButton(
-                width: buttonWidth,
-                text: 'restfulApi'.tr(),
-                onTap: () {
-                  _onSkillTap('restfulApi');
-                }),
-            BorderButton(
-                width: buttonWidth,
-                text: 'trello'.tr(),
-                onTap: () {
-                  _onSkillTap('trello');
-                }),
-            BorderButton(
-                width: buttonWidth,
-                text: 'postman'.tr(),
-                onTap: () {
-                  _onSkillTap('postman');
-                }),
-            BorderButton(
-                width: buttonWidth,
-                text: 'firebase'.tr(),
-                onTap: () {
-                  _onSkillTap('firebase');
-                }),
-            BorderButton(
-                width: buttonWidth,
-                text: 'adobeXd'.tr(),
-                onTap: () {
-                  _onSkillTap('adobeXd');
-                }),
-            BorderButton(
-                width: buttonWidth,
-                text: 'figma'.tr(),
-                onTap: () {
-                  _onSkillTap('figma');
-                }),
+            for (var skill in SkillsData.getGeneralSkills())
+              BorderButton(
+                  width: buttonWidth,
+                  text: skill.text,
+                  onTap: () {
+                    _onSkillTap(skill.text);
+                  }),
           ],
         ),
       ),
@@ -193,84 +135,13 @@ class _SkillsTabState extends State<SkillsTab> {
           spacing: 50,
           runSpacing: 20,
           children: [
-            BorderButton(
-                width: buttonWidth,
-                text: 'bloc'.tr(),
-                onTap: () {
-                  _onSkillTap('bloc');
-                }),
-            BorderButton(
-                width: buttonWidth,
-                text: 'GetX'.tr(),
-                onTap: () {
-                  _onSkillTap('GetX');
-                }),
-            BorderButton(
-                width: buttonWidth,
-                text: 'riverpod'.tr(),
-                onTap: () {
-                  _onSkillTap('riverpod');
-                }),
-            BorderButton(
-                width: buttonWidth,
-                text: 'hive'.tr(),
-                onTap: () {
-                  _onSkillTap('hive');
-                }),
-            BorderButton(
-                width: buttonWidth,
-                text: 'sqflite'.tr(),
-                onTap: () {
-                  _onSkillTap('sqflite');
-                }),
-            BorderButton(
-                width: buttonWidth,
-                text: 'dio'.tr(),
-                onTap: () {
-                  _onSkillTap('dio');
-                }),
-            BorderButton(
-                width: buttonWidth,
-                text: 'freezed'.tr(),
-                onTap: () {
-                  _onSkillTap('freezed');
-                }),
-            BorderButton(
-                width: buttonWidth,
-                text: 'pwa'.tr(),
-                onTap: () {
-                  _onSkillTap('pwa');
-                }),
-            BorderButton(
-                width: buttonWidth,
-                text: 'responsiveUi'.tr(),
-                onTap: () {
-                  _onSkillTap('responsiveUi');
-                }),
-            BorderButton(
-                width: buttonWidth,
-                text: 'googleMap'.tr(),
-                onTap: () {
-                  _onSkillTap('googleMap');
-                }),
-            BorderButton(
-                width: buttonWidth,
-                text: 'openStreetMap'.tr(),
-                onTap: () {
-                  _onSkillTap('openStreetMap');
-                }),
-            BorderButton(
-                width: buttonWidth,
-                text: 'animations'.tr(),
-                onTap: () {
-                  _onSkillTap('animations');
-                }),
-            BorderButton(
-                width: buttonWidth,
-                text: 'cloudFirestore'.tr(),
-                onTap: () {
-                  _onSkillTap('cloudFirestore');
-                }),
+            for (var skill in SkillsData.getFlutterSkills())
+              BorderButton(
+                  width: buttonWidth,
+                  text: skill.text,
+                  onTap: () {
+                    _onSkillTap(skill.text);
+                  }),
           ],
         ),
       ),
@@ -290,42 +161,13 @@ class _SkillsTabState extends State<SkillsTab> {
           spacing: 50,
           runSpacing: 20,
           children: [
-            BorderButton(
-                width: buttonWidth,
-                text: 'mvvm'.tr(),
-                onTap: () {
-                  _onSkillTap('mvvm');
-                }),
-            BorderButton(
-                width: buttonWidth,
-                text: 'mvp'.tr(),
-                onTap: () {
-                  _onSkillTap('mvp');
-                }),
-            BorderButton(
-                width: buttonWidth,
-                text: 'retrofit'.tr(),
-                onTap: () {
-                  _onSkillTap('retrofit');
-                }),
-            BorderButton(
-                width: buttonWidth,
-                text: 'volley'.tr(),
-                onTap: () {
-                  _onSkillTap('volley');
-                }),
-            BorderButton(
-                width: buttonWidth,
-                text: 'sqlite'.tr(),
-                onTap: () {
-                  _onSkillTap('sqlite');
-                }),
-            BorderButton(
-                width: buttonWidth,
-                text: 'room'.tr(),
-                onTap: () {
-                  _onSkillTap('room');
-                }),
+            for (var skill in SkillsData.getAndroidSkills())
+              BorderButton(
+                  width: buttonWidth,
+                  text: skill.text,
+                  onTap: () {
+                    _onSkillTap(skill.text);
+                  }),
           ],
         ),
       ),

@@ -1,10 +1,10 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:resume_web/utils/utils.dart';
 import 'package:resume_web/widgets/assets/svg_asset.dart';
 import 'package:resume_web/widgets/buttons/border_button.dart';
 import 'package:resume_web/widgets/gradiant_box.dart';
 
+import '../../../data/user_data.dart';
 import '../../../utils/R.dart';
 
 class HomeTabDesktop extends StatefulWidget {
@@ -45,17 +45,17 @@ class _HomeTabDesktopState extends State<HomeTabDesktop> {
                 children: [
                   const SizedBox(height: 30),
                   Text(
-                    'myName'.tr(),
+                    UserData.getMyData().name,
                     style: Theme.of(context).textTheme.headline1,
                   ),
                   Text(
-                    'myJob'.tr(),
+                    UserData.getMyData().jobTitle,
                     style: Theme.of(context).textTheme.headline1,
                   ),
                   SizedBox(
                     width: 400,
                     child: Text(
-                      'myDescription'.tr(),
+                      UserData.getMyData().description,
                       style: Theme.of(context).textTheme.headline3,
                       textAlign: Utils.isRtlLocale(context)
                           ? TextAlign.right
@@ -72,13 +72,13 @@ class _HomeTabDesktopState extends State<HomeTabDesktop> {
                   // const SizedBox(height: 50),
                   BorderButton(
                       onTap: widget.onEmailTap,
-                      text: 'myEmail'.tr(),
+                      text: UserData.getMyData().email,
                       icon: SvgAsset(
                           asset: R.icons.ic_email, width: 25, height: 15)),
                   const SizedBox(height: 25),
                   BorderButton(
                       onTap: widget.onPhoneNumberTap,
-                      text: 'myPhoneNumber'.tr(),
+                      text: UserData.getMyData().phoneNumber,
                       icon: SvgAsset(
                         asset: R.icons.ic_phone,
                         width: 15,
@@ -87,7 +87,7 @@ class _HomeTabDesktopState extends State<HomeTabDesktop> {
                   const SizedBox(height: 25),
                   BorderButton(
                       onTap: widget.onLinkedinTap,
-                      text: 'myLinkedin'.tr(),
+                      text: UserData.getMyData().linkedinUsername,
                       icon: SvgAsset(
                         asset: R.icons.ic_linkedin,
                         width: 25,
@@ -96,7 +96,7 @@ class _HomeTabDesktopState extends State<HomeTabDesktop> {
                   const SizedBox(height: 25),
                   BorderButton(
                       onTap: widget.onGithubTap,
-                      text: 'myGithub'.tr(),
+                      text: UserData.getMyData().githubUsername,
                       icon: SvgAsset(
                         asset: R.icons.ic_github,
                         width: 25,

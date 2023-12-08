@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-import 'R.dart';
+import '../utils/R.dart';
 
 class Links {
   static final screenshots = _Screenshots();
