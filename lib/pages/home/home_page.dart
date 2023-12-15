@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:resume_web/pages/main_tabs/about_me_tab/about_me_tab.dart';
 import 'package:resume_web/pages/main_tabs/experiences_tab/experiences_tab.dart';
+import 'package:resume_web/pages/main_tabs/home_tab/home_tab.dart';
 import 'package:resume_web/pages/main_tabs/portfolio_tab/portfolio_tab.dart';
 import 'package:resume_web/pages/main_tabs/skills_tab/skills_tab.dart';
 
@@ -18,7 +18,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List tabs = const [
-    AboutMeTab(),
+    HomeTab(),
     SkillsTab(),
     ExperiencesTab(),
     PortfolioTab(),

@@ -63,12 +63,17 @@ class _MainAppBarState extends State<MainAppBar> {
 
   @override
   Widget build(BuildContext context) {
+    var isDesktop = Utils.isDesktop(context);
     return Container(
       color: Colors.transparent,
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
+          if (isDesktop)
+            const SizedBox(
+              width: 70,
+            ),
           Expanded(
             child: FittedBox(
               fit: BoxFit.scaleDown,
@@ -115,9 +120,10 @@ class _MainAppBarState extends State<MainAppBar> {
             width: 20,
           ),
           buildLanguageDropdown(),
-          const SizedBox(
-            width: 20,
-          ),
+          if (isDesktop)
+            const SizedBox(
+              width: 20,
+            ),
         ],
       ),
     );

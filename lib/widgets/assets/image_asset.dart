@@ -2,30 +2,32 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class ImageAsset extends StatelessWidget {
-  String asset;
-  double width, height;
+  final String asset;
+  final double? width, height;
+  final BoxFit? fit;
 
   ImageAsset({
     Key? key,
     required this.asset,
-    required this.width,
-    required this.height,
+    this.width,
+    this.height,
+    this.fit,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return (kIsWeb && kReleaseMode)
         ? Image.network(
-            'assets/$asset',
+      'assets/$asset',
             width: width,
             height: height,
-            fit: BoxFit.fill,
+            fit: fit,
           )
         : Image.asset(
-            asset,
+      asset,
             width: width,
             height: height,
-            fit: BoxFit.fill,
+            fit: fit,
           );
   }
 }
