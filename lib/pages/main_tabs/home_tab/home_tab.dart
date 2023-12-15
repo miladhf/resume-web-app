@@ -30,7 +30,7 @@ class _HomeTabState extends State<HomeTab> {
       alignment: Alignment.center,
       children: [
         ImageAsset(
-          asset: R.images.about_me_background,
+          asset: R.images.home_background,
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           fit: BoxFit.cover,

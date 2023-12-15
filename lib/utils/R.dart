@@ -16,6 +16,7 @@ class _Icons {
 
 class _Images {
   final about_me_background = 'assets/images/about_me_background.png';
+  final home_background = 'assets/images/home_background.png';
   final vira_pic = 'assets/images/vira.png';
   final bazyaftche_pic = 'assets/images/bazyaftche_pic.png';
   final komak_pic = 'assets/images/komak_pic.png';

@@ -23,7 +23,7 @@ class MainAppBar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _MainAppBarState extends State<MainAppBar> {
-  List<bool> isSelected = [true, false, false, false];
+  List<bool> isSelected = [true, false, false, false, false];
 
   void _setSelected(int index) {
     setState(() {
@@ -37,16 +37,20 @@ class _MainAppBarState extends State<MainAppBar> {
     _setSelected(0);
   }
 
-  _onSkillsTap() {
+  _onAboutUsTap() {
     _setSelected(1);
   }
 
-  _onExperiencesTap() {
+  _onSkillsTap() {
     _setSelected(2);
   }
 
-  _onPortfolioTap() {
+  _onExperiencesTap() {
     _setSelected(3);
+  }
+
+  _onPortfolioTap() {
+    _setSelected(4);
   }
 
   void _unSelectAll() {
@@ -85,8 +89,16 @@ class _MainAppBarState extends State<MainAppBar> {
                 children: [
                   AppBarButton(
                     onTap: _onHomeTap,
-                    text: 'aboutMe'.tr(),
+                    text: 'home'.tr(),
                     isSelected: isSelected[0],
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  AppBarButton(
+                    onTap: _onAboutUsTap,
+                    text: 'aboutMe'.tr(),
+                    isSelected: isSelected[1],
                   ),
                   const SizedBox(
                     width: 10,
@@ -94,7 +106,7 @@ class _MainAppBarState extends State<MainAppBar> {
                   AppBarButton(
                     onTap: _onSkillsTap,
                     text: 'skills'.tr(),
-                    isSelected: isSelected[1],
+                    isSelected: isSelected[2],
                   ),
                   const SizedBox(
                     width: 10,
@@ -102,7 +114,7 @@ class _MainAppBarState extends State<MainAppBar> {
                   AppBarButton(
                     onTap: _onExperiencesTap,
                     text: 'workExperiences'.tr(),
-                    isSelected: isSelected[2],
+                    isSelected: isSelected[3],
                   ),
                   const SizedBox(
                     width: 10,
@@ -110,7 +122,7 @@ class _MainAppBarState extends State<MainAppBar> {
                   AppBarButton(
                     onTap: _onPortfolioTap,
                     text: 'portfolio'.tr(),
-                    isSelected: isSelected[3],
+                    isSelected: isSelected[4],
                   ),
                 ],
               ),
