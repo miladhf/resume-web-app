@@ -2,6 +2,28 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:resume_web/models/skill.dart';
 
 class SkillsData {
+  static List<Skill> getSkills() {
+    return [
+      Skill(text: 'Flutter / Dart'),
+      Skill(text: 'Responsive UI'),
+      Skill(text: 'GetX '),
+      Skill(text: 'Bloc'),
+      Skill(text: 'Riverpod'),
+      Skill(text: 'Provider'),
+      Skill(text: 'PWA / Flutter Web'),
+      Skill(text: 'Dio '),
+      Skill(text: 'Hive'),
+      Skill(text: 'Firebase'),
+      Skill(text: 'Socket '),
+      Skill(text: 'RocketChat APIs'),
+      Skill(text: 'Git'),
+      Skill(text: 'Scrum'),
+      Skill(text: 'OOP'),
+      Skill(text: 'Design Patterns'),
+      Skill(text: 'MVP / MVC / MVVM'),
+    ];
+  }
+
   static List<Skill> getGeneralSkills() {
     return [
       Skill(text: 'selfLearning'.tr()),
