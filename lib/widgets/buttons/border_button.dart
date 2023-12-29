@@ -28,7 +28,7 @@ class BorderButton extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(25),
-            border: Border.all(color: Colors.white),
+            border: Border.all(color: Theme.of(context).colorScheme.primary),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -40,7 +40,10 @@ class BorderButton extends StatelessWidget {
                     child: FittedBox(
                       child: Text(
                         text,
-                        style: Theme.of(context).textTheme.bodyText1,
+                        style: Theme.of(context).textTheme.headline1?.copyWith(
+                              color: Theme.of(context).colorScheme.primary,
+                              fontSize: 14,
+                            ),
                       ),
                     ),
                   ),

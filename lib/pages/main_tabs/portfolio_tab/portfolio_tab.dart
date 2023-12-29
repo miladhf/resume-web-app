@@ -6,8 +6,9 @@ import 'package:resume_web/data/portfolio_data.dart';
 import 'package:resume_web/models/portfolio.dart';
 
 import '../../../animations/dialog_animations.dart';
-import '../../../widgets/dialogs/portfolio_images_dialog.dart';
-import '../../../widgets/list_items/porfolio_item.dart';
+import '../../../utils/utils.dart';
+import '../../../widgets/portfolio/porfolio_item.dart';
+import '../../../widgets/portfolio/portfolio_images_dialog.dart';
 
 class PortfolioTab extends StatefulWidget {
   static bool isFirstRun = true;
@@ -39,13 +40,25 @@ class _PortfolioTabState extends State<PortfolioTab> {
 
   @override
   Widget build(BuildContext context) {
+    var isDesktop = Utils.isDesktop(context);
     EasyLocalization.of(context)?.locale;
 
     return Align(
       alignment: Alignment.topCenter,
       child: ListView(
-        padding: const EdgeInsets.only(bottom: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 20),
         children: [
+          Center(
+            child: Text(
+              'portfolio'.tr(),
+              style: Theme.of(context).textTheme.headline1?.copyWith(
+                    fontSize: isDesktop ? 35 : 30,
+                  ),
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
           Wrap(
             runSpacing: 50,
             spacing: 50,
@@ -64,11 +77,7 @@ class _PortfolioTabState extends State<PortfolioTab> {
                   onDownloadLinkTap: () {
                     _onDownloadLinkTap(portfolio);
                   },
-                  image: portfolio.image,
-                  title: portfolio.title,
-                  description: portfolio.description,
-                  downloadLinkText: portfolio.downloadLinkText,
-                  tagText: portfolio.tagText,
+                  portfolio: portfolio,
                   showPicsButton: portfolio.showPicsButton,
                 ),
             ],
