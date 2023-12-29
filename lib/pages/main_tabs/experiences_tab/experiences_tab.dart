@@ -3,9 +3,10 @@ import 'dart:js' as js;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:resume_web/models/work_experience.dart';
+import 'package:resume_web/widgets/experiences/experience_item.dart';
 
 import '../../../data/work_experience_data.dart';
-import '../../../widgets/list_items/porfolio_item.dart';
+import '../../../utils/utils.dart';
 
 class ExperiencesTab extends StatefulWidget {
   static bool isFirstRun = true;
@@ -28,38 +29,40 @@ class _ExperiencesTabState extends State<ExperiencesTab> {
   @override
   Widget build(BuildContext context) {
     EasyLocalization.of(context)?.locale;
+    var isDesktop = Utils.isDesktop(context);
 
-    return Align(
-      alignment: Alignment.topCenter,
-      child: ListView(
-        padding: const EdgeInsets.only(bottom: 8),
-        children: [
-          Wrap(
-            runSpacing: 50,
-            spacing: 50,
-            crossAxisAlignment: WrapCrossAlignment.center,
-            alignment: WrapAlignment.center,
-            runAlignment: WrapAlignment.center,
-            children: [
-              for (var experience in WorkExperiencesData.getWorkExperiences())
-                PortfolioItem(
-                  isFirstRun: ExperiencesTab.isFirstRun,
-                  firstRan: _firstRan,
-                  haveDownloadLink: experience.haveDownloadLink,
-                  onDownloadLinkTap: () {
-                    _onShowSiteTap(experience);
-                  },
-                  image: experience.image,
-                  title: experience.title,
-                  description: experience.description,
-                  downloadLinkText: experience.downloadLinkText,
-                  tagText: experience.tagText,
-                  showPicsButton: experience.showPicsButton,
-                ),
-            ],
-          ),
-        ],
+    var works = WorkExperiencesData.getWorkExperiences();
+
+    return ListView.separated(
+      shrinkWrap: true,
+      padding: EdgeInsets.symmetric(
+        horizontal: isDesktop ? 80 : 20,
+        vertical: isDesktop ? 30 : 20,
       ),
+      itemCount: works.length,
+      itemBuilder: (c, i) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (i == 0)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: Text(
+                  'workExperiences'.tr(),
+                  style: Theme.of(context).textTheme.headline1?.copyWith(
+                        fontSize: isDesktop ? 35 : 30,
+                      ),
+                ),
+              ),
+            ExperienceItem(experience: works[i]),
+          ],
+        );
+      },
+      separatorBuilder: (c, i) {
+        return const SizedBox(
+          height: 16,
+        );
+      },
     );
   }
 }

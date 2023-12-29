@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
     ExperiencesTab(),
     PortfolioTab(),
   ];
-  int index = 0;
+  int index = 3;
 
   _onSelectedChange(int selectedIndex) {
     setState(() {

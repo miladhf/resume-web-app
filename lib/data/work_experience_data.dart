@@ -1,19 +1,19 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:resume_web/models/work_experience.dart';
 
-import '../utils/R.dart';
-
 class WorkExperiencesData {
   static List<WorkExperience> getWorkExperiences() {
     return [
       WorkExperience(
         haveDownloadLink: true,
-        image: R.images.vira_pic,
+        logo: 'assets/images/vitech_logo.png',
         title: 'viraCompany'.tr(),
         description: 'viraDescription'.tr(),
         downloadLinkText: 'seeWebsite'.tr(),
         tagText: 'flutter'.tr(),
+        date: 'خرداد 1401 تا به امروز',
         showPicsButton: false,
+        imageCover: 'assets/images/work_image_1.png',
       ),
     ];
   }
