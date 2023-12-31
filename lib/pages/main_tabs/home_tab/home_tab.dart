@@ -37,7 +37,8 @@ class _HomeTabState extends State<HomeTab> {
         ),
         Positioned(
           bottom: isDesktop ? 150 : 120,
-          right: isDesktop ? 70 : 30,
+          right: Utils.isRtlLocale(context) ? (isDesktop ? 70 : 30) : null,
+          left: Utils.isRtlLocale(context) ? null : (isDesktop ? 70 : 30),
           child: SizedBox(
             height: height,
             child: Row(

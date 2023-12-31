@@ -74,6 +74,9 @@ class ExperienceItem extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
+        const SizedBox(
+          width: 5,
+        ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

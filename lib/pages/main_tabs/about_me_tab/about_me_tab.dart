@@ -23,13 +23,15 @@ class _AboutMeTabState extends State<AboutMeTab> {
   @override
   Widget build(BuildContext context) {
     var isDesktop = Utils.isDesktop(context);
+    var isRtlLocale = Utils.isRtlLocale(context);
 
     return Stack(
       alignment: Alignment.center,
       clipBehavior: Clip.antiAlias,
       children: [
         Positioned(
-          left: -550,
+          left: isRtlLocale ? -550 : null,
+          right: isRtlLocale ? null : -550,
           top: 0,
           child: Opacity(
             opacity: 0.3,
@@ -46,11 +48,14 @@ class _AboutMeTabState extends State<AboutMeTab> {
                   SizedBox(
                     width: MediaQuery.of(context).size.width,
                   ),
-                  ImageAsset(
-                    asset: R.images.about_me_background,
-                    width: 1700,
-                    height: 650,
-                    fit: BoxFit.fitHeight,
+                  Transform.flip(
+                    flipX: isRtlLocale ? false : true,
+                    child: ImageAsset(
+                      asset: R.images.about_me_background,
+                      width: 1700,
+                      height: 650,
+                      fit: BoxFit.fitHeight,
+                    ),
                   ),
                 ],
               ),
@@ -59,9 +64,9 @@ class _AboutMeTabState extends State<AboutMeTab> {
         ),
         Positioned(
           top: 0,
-          right: isDesktop ? 70 : 0,
+          right: isRtlLocale ? (isDesktop ? 70 : 0) : 0,
           bottom: 0,
-          left: 0,
+          left: isRtlLocale ? (0) : (isDesktop ? 70 : 0),
           child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             padding: EdgeInsets.only(top: isDesktop ? 100 : 60),
@@ -92,7 +97,7 @@ class _AboutMeTabState extends State<AboutMeTab> {
                       (isDesktop ? 0.6 : 0.8),
                   child: Text(
                     UserData.getMyData().description,
-                    textAlign: isDesktop ? TextAlign.justify : TextAlign.right,
+                    textAlign: TextAlign.start,
                     style: Theme.of(context).textTheme.bodyText1?.copyWith(
                           fontSize: isDesktop ? 25 : 20,
                         ),

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../buttons/custom_button.dart';
@@ -18,7 +19,7 @@ class HomeButtons extends StatelessWidget {
           child: CustomButton(
             buttonHeight: buttonHeight,
             onPressed: () {},
-            text: 'آشنایی با من',
+            text: 'aboutMe'.tr(),
           ),
         ),
         const SizedBox(
@@ -31,7 +32,7 @@ class HomeButtons extends StatelessWidget {
             onPressed: () {},
             backgroundColor: Colors.transparent,
             borderColor: Theme.of(context).colorScheme.primary,
-            text: 'نمونه کارها',
+            text: 'portfolio'.tr(),
             textColor: Theme.of(context).colorScheme.primary,
           ),
         ),

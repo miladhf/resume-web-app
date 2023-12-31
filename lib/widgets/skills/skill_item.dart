@@ -27,7 +27,9 @@ class _SkillItemState extends State<SkillItem> {
     double circleSize = isDesktop ? 20 : 15;
 
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
+      crossAxisAlignment: Utils.isRtlLocale(context)
+          ? CrossAxisAlignment.end
+          : CrossAxisAlignment.start,
       children: [
         InkWell(
           onHover: (value) {
