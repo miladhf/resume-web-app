@@ -18,14 +18,27 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List tabs = const [
-    HomeTab(),
-    AboutMeTab(),
-    SkillsTab(),
-    ExperiencesTab(),
-    PortfolioTab(),
-  ];
+  late Map<String, Widget> tabs = {
+    'home': HomeTab(
+      onAboutMeTap: onAboutMeTap,
+      onPortfolioTap: onPortfolioTap,
+    ),
+    'aboutMe': const AboutMeTab(),
+    'skills': const SkillsTab(),
+    'workExperiences': const ExperiencesTab(),
+    'portfolio': const PortfolioTab(),
+  };
   int index = 0;
+
+  void onAboutMeTap() {
+    _onSelectedChange(
+        tabs.values.toList().indexWhere((e) => e.runtimeType == AboutMeTab));
+  }
+
+  void onPortfolioTap() {
+    _onSelectedChange(
+        tabs.values.toList().indexWhere((e) => e.runtimeType == PortfolioTab));
+  }
 
   _onSelectedChange(int selectedIndex) {
     setState(() {
@@ -40,8 +53,12 @@ class _HomePageState extends State<HomePage> {
           Utils.isRtlLocale(context) ? TextDirection.rtl : TextDirection.ltr,
       child: SafeArea(
         child: Scaffold(
-          appBar: MainAppBar(onSelectedChange: _onSelectedChange),
-          body: tabs[index],
+          appBar: MainAppBar(
+            tabs: tabs,
+            selectedIndex: index,
+            onSelectedChange: _onSelectedChange,
+          ),
+          body: tabs.values.toList()[index],
         ),
       ),
     );

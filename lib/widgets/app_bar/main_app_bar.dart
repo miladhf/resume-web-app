@@ -8,10 +8,14 @@ import 'app_bar_button.dart';
 
 class MainAppBar extends StatefulWidget implements PreferredSizeWidget {
   var height = 100.0;
-  Function(int selectedIndex) onSelectedChange;
+  final Map<String, Widget> tabs;
+  final int selectedIndex;
+  final Function(int selectedIndex) onSelectedChange;
 
   MainAppBar({
     Key? key,
+    required this.tabs,
+    required this.selectedIndex,
     required this.onSelectedChange,
   }) : super(key: key);
 
@@ -23,39 +27,6 @@ class MainAppBar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _MainAppBarState extends State<MainAppBar> {
-  List<bool> isSelected = [true, false, false, false, false];
-
-  void _setSelected(int index) {
-    setState(() {
-      _unSelectAll();
-      isSelected[index] = true;
-    });
-    widget.onSelectedChange(index);
-  }
-
-  _onHomeTap() {
-    _setSelected(0);
-  }
-
-  _onAboutUsTap() {
-    _setSelected(1);
-  }
-
-  _onSkillsTap() {
-    _setSelected(2);
-  }
-
-  _onExperiencesTap() {
-    _setSelected(3);
-  }
-
-  _onPortfolioTap() {
-    _setSelected(4);
-  }
-
-  void _unSelectAll() {
-    isSelected = isSelected.map((e) => e = false).toList();
-  }
 
   void _onFarsiTap() {
     context.setLocale(const Locale('fa', 'IR'));
@@ -87,43 +58,22 @@ class _MainAppBarState extends State<MainAppBar> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  AppBarButton(
-                    onTap: _onHomeTap,
-                    text: 'home'.tr(),
-                    isSelected: isSelected[0],
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  AppBarButton(
-                    onTap: _onAboutUsTap,
-                    text: 'aboutMe'.tr(),
-                    isSelected: isSelected[1],
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  AppBarButton(
-                    onTap: _onSkillsTap,
-                    text: 'skills'.tr(),
-                    isSelected: isSelected[2],
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  AppBarButton(
-                    onTap: _onExperiencesTap,
-                    text: 'workExperiences'.tr(),
-                    isSelected: isSelected[3],
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  AppBarButton(
-                    onTap: _onPortfolioTap,
-                    text: 'portfolio'.tr(),
-                    isSelected: isSelected[4],
-                  ),
+                  for (int i = 0; i < widget.tabs.entries.length; i++)
+                    Row(
+                      children: [
+                        AppBarButton(
+                          onTap: () {
+                            widget.onSelectedChange(i);
+                          },
+                          text: widget.tabs.entries.toList()[i].key.tr(),
+                          isSelected: widget.selectedIndex == i,
+                        ),
+                        if (i != widget.tabs.entries.length - 1)
+                          const SizedBox(
+                            width: 10,
+                          ),
+                      ],
+                    ),
                 ],
               ),
             ),

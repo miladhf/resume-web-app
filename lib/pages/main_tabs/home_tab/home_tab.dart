@@ -9,8 +9,14 @@ import '../../../widgets/assets/image_asset.dart';
 
 class HomeTab extends StatefulWidget {
   static bool isFirstRun = true;
+  final VoidCallback onAboutMeTap;
+  final VoidCallback onPortfolioTap;
 
-  const HomeTab({Key? key}) : super(key: key);
+  const HomeTab({
+    Key? key,
+    required this.onAboutMeTap,
+    required this.onPortfolioTap,
+  }) : super(key: key);
 
   @override
   _HomeTabState createState() => _HomeTabState();
@@ -75,7 +81,10 @@ class _HomeTabState extends State<HomeTab> {
                     const SizedBox(
                       height: 5,
                     ),
-                    const HomeButtons(),
+                    HomeButtons(
+                      onAboutMeTap: widget.onAboutMeTap,
+                      onPortfolioTap: widget.onPortfolioTap,
+                    ),
                   ],
                 ),
               ],

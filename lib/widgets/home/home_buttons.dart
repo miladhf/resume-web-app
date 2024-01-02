@@ -4,8 +4,13 @@ import 'package:flutter/material.dart';
 import '../buttons/custom_button.dart';
 
 class HomeButtons extends StatelessWidget {
+  final VoidCallback onAboutMeTap;
+  final VoidCallback onPortfolioTap;
+
   const HomeButtons({
     Key? key,
+    required this.onAboutMeTap,
+    required this.onPortfolioTap,
   }) : super(key: key);
 
   @override
@@ -18,7 +23,7 @@ class HomeButtons extends StatelessWidget {
           width: buttonWidth,
           child: CustomButton(
             buttonHeight: buttonHeight,
-            onPressed: () {},
+            onPressed: onAboutMeTap,
             text: 'aboutMe'.tr(),
           ),
         ),
@@ -29,7 +34,7 @@ class HomeButtons extends StatelessWidget {
           width: buttonWidth,
           child: CustomButton(
             buttonHeight: buttonHeight,
-            onPressed: () {},
+            onPressed: onPortfolioTap,
             backgroundColor: Colors.transparent,
             borderColor: Theme.of(context).colorScheme.primary,
             text: 'portfolio'.tr(),
