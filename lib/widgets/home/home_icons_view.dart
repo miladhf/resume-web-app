@@ -1,9 +1,8 @@
-import 'dart:js' as js;
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../data/user_data.dart';
 import '../../utils/R.dart';
@@ -39,11 +38,11 @@ class _HomeIconsViewState extends State<HomeIconsView> {
   }
 
   _onLinkedinTap() {
-    js.context.callMethod('open', [UserData.getMyData().linkedinLink]);
+    launchUrl(Uri.parse(UserData.getMyData().linkedinLink.toString()));
   }
 
   _onGithubTap() {
-    js.context.callMethod('open', [UserData.getMyData().githubLink]);
+    launchUrl(Uri.parse(UserData.getMyData().githubLink.toString()));
   }
 
   @override

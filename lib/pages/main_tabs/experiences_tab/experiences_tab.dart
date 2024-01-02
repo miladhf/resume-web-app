@@ -1,9 +1,8 @@
-import 'dart:js' as js;
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:resume_web/models/work_experience.dart';
 import 'package:resume_web/widgets/experiences/experience_item.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../data/work_experience_data.dart';
 import '../../../utils/utils.dart';
@@ -23,7 +22,7 @@ class _ExperiencesTabState extends State<ExperiencesTab> {
   }
 
   _onShowSiteTap(WorkExperience experience) {
-    js.context.callMethod('open', [experience.link]);
+    launchUrl(Uri.parse(experience.link.toString()));
   }
 
   @override

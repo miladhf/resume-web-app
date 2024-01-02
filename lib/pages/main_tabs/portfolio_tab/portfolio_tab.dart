@@ -1,9 +1,8 @@
-import 'dart:js' as js;
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:resume_web/data/portfolio_data.dart';
 import 'package:resume_web/models/portfolio.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../animations/dialog_animations.dart';
 import '../../../utils/utils.dart';
@@ -35,7 +34,7 @@ class _PortfolioTabState extends State<PortfolioTab> {
   }
 
   _onDownloadLinkTap(Portfolio portfolio) {
-    js.context.callMethod('open', [portfolio.downloadLink]);
+    launchUrl(Uri.parse(portfolio.downloadLink.toString()));
   }
 
   @override
