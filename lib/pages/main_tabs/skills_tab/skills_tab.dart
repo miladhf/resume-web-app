@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart' as easy;
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:resume_web/data/skills_data.dart';
 import 'package:resume_web/models/skill.dart';
 import 'package:resume_web/utils/utils.dart';
@@ -25,42 +26,12 @@ class _SkillsTabState extends State<SkillsTab> {
   var androidSkillsOffset = const Offset(-1, 0);
   var duration = const Duration(seconds: 1);
 
-  _firstRan() {
+  _firstRun() {
     SkillsTab.isFirstRun = false;
   }
 
   void _onSkillTap(String skill) {}
 
-  void _animate() async {
-    await Future.delayed(const Duration(milliseconds: 500));
-    if (mounted) {
-      setState(() {
-        publicSkillsOffset = const Offset(0, 0);
-      });
-    }
-    await Future.delayed(const Duration(milliseconds: 500));
-    if (mounted) {
-      setState(() {
-        flutterSkillsOffset = const Offset(0, 0);
-      });
-    }
-    await Future.delayed(const Duration(milliseconds: 500));
-    if (mounted) {
-      setState(() {
-        androidSkillsOffset = const Offset(0, 0);
-      });
-    }
-
-    SkillsTab.isFirstRun = false;
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    if (SkillsTab.isFirstRun) {
-      _animate();
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -93,58 +64,85 @@ class _SkillsTabState extends State<SkillsTab> {
           bottom: isDesktop ? -120 : -210,
           child: Opacity(
             opacity: 0.8,
-            child: ImageAsset(
-              asset: R.images.moon_background,
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              fit: BoxFit.contain,
+            child: Animate(
+              effects: SkillsTab.isFirstRun
+                  ? [
+                      MoveEffect(
+                          begin: MoveEffect.neutralValue.copyWith(
+                              dy: MediaQuery.of(context).size.height + 300),
+                          duration: 4000.milliseconds,
+                          curve: Curves.fastEaseInToSlowEaseOut),
+                    ]
+                  : [],
+              onComplete: (c) {
+                _firstRun();
+              },
+              child: ImageAsset(
+                asset: R.images.moon_background,
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                fit: BoxFit.contain,
+              ),
             ),
           ),
         ),
-        Column(
-          children: [
-            const SizedBox(
-              height: 20,
-            ),
-            Text(
-              'skills'.tr(),
-              style: Theme.of(context).textTheme.headline1?.copyWith(
-                    fontSize: 25,
-                  ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            SizedBox(
-              width: double.infinity,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  textDirection: TextDirection.ltr,
-                  children: [
-                    for (int i = 0; i < skillsList.length; i++)
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              for (int j = 0; j < skillsList[i].length; j++)
-                                SkillItem(
-                                  skill: skillsList[i][j],
-                                  isEndOfList: j != skillsList[i].length - 1,
-                                )
-                            ],
+        Animate(
+          effects: SkillsTab.isFirstRun
+              ? [
+                  MoveEffect(
+                      begin: MoveEffect.neutralValue.copyWith(dy: -500),
+                      duration: 1200.milliseconds,
+                      curve: Curves.fastOutSlowIn),
+                ]
+              : [],
+          onComplete: (c) {
+            _firstRun();
+          },
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 20,
+              ),
+              Text(
+                'skills'.tr(),
+                style: Theme.of(context).textTheme.headline1?.copyWith(
+                      fontSize: 25,
+                    ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                width: double.infinity,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    textDirection: TextDirection.ltr,
+                    children: [
+                      for (int i = 0; i < skillsList.length; i++)
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                for (int j = 0; j < skillsList[i].length; j++)
+                                  SkillItem(
+                                    skill: skillsList[i][j],
+                                    isEndOfList: j != skillsList[i].length - 1,
+                                  )
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         )
       ],
     );
