@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:resume_web/data/portfolio_data.dart';
 import 'package:resume_web/models/portfolio.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -19,7 +20,7 @@ class PortfolioTab extends StatefulWidget {
 }
 
 class _PortfolioTabState extends State<PortfolioTab> {
-  _firstRan() {
+  _firstRun() {
     PortfolioTab.isFirstRun = false;
   }
 
@@ -42,46 +43,56 @@ class _PortfolioTabState extends State<PortfolioTab> {
     var isDesktop = Utils.isDesktop(context);
     EasyLocalization.of(context)?.locale;
 
-    return Align(
-      alignment: Alignment.topCenter,
-      child: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 20),
-        children: [
-          Center(
-            child: Text(
-              'portfolio'.tr(),
-              style: Theme.of(context).textTheme.headline1?.copyWith(
-                    fontSize: isDesktop ? 35 : 30,
-                  ),
+    return Animate(
+      effects: PortfolioTab.isFirstRun
+          ? [
+              FadeEffect(
+                duration: 1500.ms,
+              ),
+            ]
+          : [],
+      onComplete: (c) {
+        _firstRun();
+      },
+      child: Align(
+        alignment: Alignment.topCenter,
+        child: ListView(
+          padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 20),
+          children: [
+            Center(
+              child: Text(
+                'portfolio'.tr(),
+                style: Theme.of(context).textTheme.headline1?.copyWith(
+                      fontSize: isDesktop ? 35 : 30,
+                    ),
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Wrap(
-            runSpacing: 50,
-            spacing: 50,
-            crossAxisAlignment: WrapCrossAlignment.center,
-            alignment: WrapAlignment.center,
-            runAlignment: WrapAlignment.center,
-            children: [
-              for (var portfolio in PortfolioData.getPortfolio())
-                PortfolioItem(
-                  isFirstRun: PortfolioTab.isFirstRun,
-                  firstRan: _firstRan,
-                  haveDownloadLink: portfolio.haveDownloadLink,
-                  onViewPicsTap: () {
-                    _onViewPicsTap(portfolio);
-                  },
-                  onDownloadLinkTap: () {
-                    _onDownloadLinkTap(portfolio);
-                  },
-                  portfolio: portfolio,
-                  showPicsButton: portfolio.showPicsButton,
-                ),
-            ],
-          ),
-        ],
+            const SizedBox(
+              height: 10,
+            ),
+            Wrap(
+              runSpacing: 50,
+              spacing: 50,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              alignment: WrapAlignment.center,
+              runAlignment: WrapAlignment.center,
+              children: [
+                for (var portfolio in PortfolioData.getPortfolio())
+                  PortfolioItem(
+                    haveDownloadLink: portfolio.haveDownloadLink,
+                    onViewPicsTap: () {
+                      _onViewPicsTap(portfolio);
+                    },
+                    onDownloadLinkTap: () {
+                      _onDownloadLinkTap(portfolio);
+                    },
+                    portfolio: portfolio,
+                    showPicsButton: portfolio.showPicsButton,
+                  ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
