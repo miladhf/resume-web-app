@@ -48,7 +48,7 @@ class _SkillItemState extends State<SkillItem> {
           focusColor: Colors.transparent,
           splashColor: Colors.transparent,
           child: SizedBox(
-            width: 120,
+            width: 140,
             child: Row(
               textDirection: TextDirection.ltr,
               crossAxisAlignment: CrossAxisAlignment.center,

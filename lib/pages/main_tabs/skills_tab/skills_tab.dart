@@ -21,16 +21,10 @@ class SkillsTab extends StatefulWidget {
 class _SkillsTabState extends State<SkillsTab> {
   int skillsPerRow = 5;
 
-  var publicSkillsOffset = const Offset(-1, 0);
-  var flutterSkillsOffset = const Offset(-1, 0);
-  var androidSkillsOffset = const Offset(-1, 0);
-  var duration = const Duration(seconds: 1);
-
   _firstRun() {
     SkillsTab.isFirstRun = false;
   }
 
-  void _onSkillTap(String skill) {}
 
 
   @override
@@ -50,7 +44,6 @@ class _SkillsTabState extends State<SkillsTab> {
       }
     }
 
-    double buttonWidth = 150;
     return Stack(
       alignment: Alignment.center,
       children: [
@@ -61,7 +54,7 @@ class _SkillsTabState extends State<SkillsTab> {
           fit: BoxFit.cover,
         ),
         Positioned(
-          bottom: isDesktop ? -120 : -250,
+          bottom: isDesktop ? -120 : -120,
           child: Opacity(
             opacity: 0.8,
             child: Animate(
@@ -81,7 +74,7 @@ class _SkillsTabState extends State<SkillsTab> {
                 asset: R.images.moon_background,
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
-                fit: BoxFit.contain,
+                fit: BoxFit.fitHeight,
               ),
             ),
           ),
@@ -115,7 +108,7 @@ class _SkillsTabState extends State<SkillsTab> {
               SizedBox(
                 width: double.infinity,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -124,7 +117,7 @@ class _SkillsTabState extends State<SkillsTab> {
                       for (int i = 0; i < skillsList.length; i++)
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
