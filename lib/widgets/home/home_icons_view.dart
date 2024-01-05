@@ -5,7 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../data/user_data.dart';
-import '../../utils/R.dart';
 import '../assets/svg_asset.dart';
 import '../toasts.dart';
 
@@ -54,7 +53,8 @@ class _HomeIconsViewState extends State<HomeIconsView> {
           message: UserData.getMyData().email,
           child: GestureDetector(
               onTap: _onEmailTap,
-              child: SvgAsset(asset: R.icons.ic_email, width: 25, height: 25)),
+              child: SvgAsset(
+                  asset: 'assets/icons/ic_email.svg', width: 25, height: 25)),
         ),
         const SizedBox(height: 25),
         Tooltip(
@@ -62,7 +62,7 @@ class _HomeIconsViewState extends State<HomeIconsView> {
           child: GestureDetector(
               onTap: _onPhoneNumberTap,
               child: SvgAsset(
-                asset: R.icons.ic_phone,
+                asset: 'assets/icons/ic_phone.svg',
                 width: 25,
                 height: 25,
               )),
@@ -73,7 +73,7 @@ class _HomeIconsViewState extends State<HomeIconsView> {
           child: GestureDetector(
               onTap: _onLinkedinTap,
               child: SvgAsset(
-                asset: R.icons.ic_linkedin,
+                asset: 'assets/icons/ic_linkedin.svg',
                 width: 25,
                 height: 25,
               )),
@@ -84,7 +84,7 @@ class _HomeIconsViewState extends State<HomeIconsView> {
           child: GestureDetector(
               onTap: _onGithubTap,
               child: SvgAsset(
-                asset: R.icons.ic_github,
+                asset: 'assets/icons/ic_github.svg',
                 width: 25,
                 height: 25,
               )),

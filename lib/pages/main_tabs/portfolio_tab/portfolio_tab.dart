@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:resume_web/data/portfolio_data.dart';
@@ -35,7 +36,8 @@ class _PortfolioTabState extends State<PortfolioTab> {
   }
 
   _onDownloadLinkTap(Portfolio portfolio) {
-    launchUrl(Uri.parse(portfolio.downloadLink.toString()));
+    launchUrl(Uri.parse(((kIsWeb && kReleaseMode) ? 'assets/' : '') +
+        portfolio.downloadLink.toString()));
   }
 
   @override

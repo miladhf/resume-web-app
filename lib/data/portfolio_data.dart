@@ -1,8 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 
 import '../models/portfolio.dart';
-import '../utils/R.dart';
-import 'links.dart';
 
 class PortfolioData {
   static final BuildTag flutterTag = BuildTag(
@@ -18,61 +16,75 @@ class PortfolioData {
     return [
       Portfolio(
         haveDownloadLink: true,
-        logo: R.images.komak_pic,
+        logo: 'assets/images/komak_pic.png',
         coverImage: 'assets/images/bazyaftche_cover_pic.png',
         title: 'komakApp'.tr(),
         description: 'komakDescription'.tr(),
         downloadLinkText: 'androidDownloadLink'.tr(),
         buildTag: flutterTag,
         showPicsButton: true,
-        photos: Links.screenshots.komak,
-        downloadLink: Links.link.komak_apk,
+        photos: [
+          for (int i = 1; i <= 28; i++) 'assets/images/komak_screenshot_$i.jpg'
+        ],
+        downloadLink: 'assets/outputs/komak.apk',
       ),
       Portfolio(
         haveDownloadLink: true,
-        logo: R.images.bazyaftche_pic,
+        logo: 'assets/images/bazyaftche_pic.png',
         coverImage: 'assets/images/bazyaftche_cover_pic.png',
         title: 'bazyaftcheApp'.tr(),
         description: 'bazyaftcheDescription'.tr(),
         downloadLinkText: 'androidDownloadLink'.tr(),
         buildTag: javaTag,
         showPicsButton: true,
-        photos: Links.screenshots.bazyeftche,
-        downloadLink: Links.link.bazyaftche_apk,
+        photos: [
+          for (int i = 1; i <= 13; i++)
+            'assets/images/bazyaftche_screenshot_$i.jpg'
+        ],
+        downloadLink: 'assets/outputs/bazyaftche.apk',
       ),
       Portfolio(
         haveDownloadLink: true,
-        logo: R.images.financial_management_pic,
+        logo: 'assets/images/financial_management_pic.png',
         coverImage: 'assets/images/bazyaftche_cover_pic.png',
         title: 'financialManagementApp'.tr(),
         description: 'financialManagementDescription'.tr(),
         downloadLinkText: 'windowsDownloadLink'.tr(),
         buildTag: flutterTag,
         showPicsButton: true,
-        photos: Links.screenshots.financialManagement,
-        downloadLink: Links.link.financial_management_setup,
+        photos: [
+          for (int i = 1; i <= 6; i++)
+            'assets/images/financial_management_screenshot_$i.png'
+        ],
+        downloadLink: 'assets/outputs/financial-management_setup.exe',
       ),
       Portfolio(
         haveDownloadLink: true,
-        logo: R.images.tebebehan_pic,
+        logo: 'assets/images/tebebehan_pic.png',
         coverImage: 'assets/images/bazyaftche_cover_pic.png',
         title: 'tebebehanApp'.tr(),
         description: 'tebebehanDescription'.tr(),
         downloadLinkText: 'cafeBazaarDownloadLink'.tr(),
         buildTag: javaTag,
         showPicsButton: true,
-        photos: Links.screenshots.tebebehan,
-        downloadLink: Links.link.tebebehan,
+        photos: [
+          for (int i = 1; i <= 5; i++)
+            'assets/images/tebebehan_screenshot_$i.jpg'
+        ],
+        downloadLink:
+            'https://cafebazaar.ir/app/com.example.omidmilad.tebebehan',
       ),
       Portfolio(
         haveDownloadLink: false,
-        logo: R.images.market_pic,
+        logo: 'assets/images/market_pic.png',
         coverImage: 'assets/images/bazyaftche_cover_pic.png',
         title: 'marketApp'.tr(),
         description: 'marketDescription'.tr(),
         buildTag: javaTag,
         showPicsButton: true,
-        photos: Links.screenshots.market,
+        photos: [
+          for (int i = 1; i <= 10; i++) 'assets/images/market_screenshot_$i.jpg'
+        ],
       ),
     ];
   }

@@ -4,7 +4,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class SvgAsset extends StatelessWidget {
   String asset;
-  Color? color;
   double? width, height;
 
   SvgAsset({
@@ -12,7 +11,6 @@ class SvgAsset extends StatelessWidget {
     required this.asset,
     this.width,
     this.height,
-    this.color,
   }) : super(key: key);
 
   @override
@@ -22,14 +20,12 @@ class SvgAsset extends StatelessWidget {
             'assets/$asset',
             width: width,
             height: height,
-            color: color,
             fit: BoxFit.fill,
           )
         : SvgPicture.asset(
       asset,
             width: width,
             height: height,
-            color: color,
             fit: BoxFit.fill,
           );
   }

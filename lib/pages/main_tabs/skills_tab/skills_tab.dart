@@ -6,7 +6,6 @@ import 'package:resume_web/models/skill.dart';
 import 'package:resume_web/utils/utils.dart';
 import 'package:resume_web/widgets/skills/skill_item.dart';
 
-import '../../../utils/R.dart';
 import '../../../widgets/assets/image_asset.dart';
 
 class SkillsTab extends StatefulWidget {
@@ -48,7 +47,7 @@ class _SkillsTabState extends State<SkillsTab> {
       alignment: Alignment.center,
       children: [
         ImageAsset(
-          asset: R.images.moon_background2,
+          asset: 'assets/images/moon_background2.png',
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           fit: BoxFit.cover,
@@ -71,7 +70,7 @@ class _SkillsTabState extends State<SkillsTab> {
                 _firstRun();
               },
               child: ImageAsset(
-                asset: R.images.moon_background,
+                asset: 'assets/images/moon_background.png',
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
                 fit: BoxFit.fitHeight,

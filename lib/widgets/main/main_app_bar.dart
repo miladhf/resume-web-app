@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:resume_web/utils/R.dart';
 import 'package:resume_web/utils/utils.dart';
 import 'package:resume_web/widgets/assets/svg_asset.dart';
 
@@ -128,8 +127,8 @@ class _MainAppBarState extends State<MainAppBar> {
                 ),
                 child: SvgAsset(
                   asset: Utils.isRtlLocale(context)
-                      ? R.icons.ic_iran
-                      : R.icons.ic_usa,
+                      ? 'assets/icons/ic_iran.svg'
+                      : 'assets/icons/ic_usa.svg',
                 ),
               ),
               const SizedBox(
@@ -165,8 +164,9 @@ class _MainAppBarState extends State<MainAppBar> {
             child: Row(
               children: [
                 SvgAsset(
-                  asset:
-                      value == 'farsi'.tr() ? R.icons.ic_iran : R.icons.ic_usa,
+                  asset: value == 'farsi'.tr()
+                      ? 'assets/icons/ic_iran.svg'
+                      : 'assets/icons/ic_usa.svg',
                   width: 25,
                   height: 25,
                 ),

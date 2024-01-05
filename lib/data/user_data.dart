@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:resume_web/models/user.dart';
 
-import 'links.dart';
 
 class UserData {
   static User getMyData() {
@@ -12,9 +11,9 @@ class UserData {
       email: 'myEmail'.tr(),
       phoneNumber: 'myPhoneNumber'.tr(),
       githubUsername: 'myGithub'.tr(),
-      githubLink: Links.link.github,
+      githubLink: 'https://github.com/miladhf',
       linkedinUsername: 'myLinkedin'.tr(),
-      linkedinLink: Links.link.linkedin,
+      linkedinLink: 'https://www.linkedin.com/in/milad-haselforoush',
     );
   }
 }

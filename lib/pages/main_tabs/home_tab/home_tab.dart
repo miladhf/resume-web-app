@@ -6,7 +6,6 @@ import 'package:resume_web/widgets/home/home_buttons.dart';
 import 'package:resume_web/widgets/home/home_icons_view.dart';
 
 import '../../../data/user_data.dart';
-import '../../../utils/R.dart';
 import '../../../widgets/assets/image_asset.dart';
 
 class HomeTab extends StatefulWidget {
@@ -37,7 +36,7 @@ class _HomeTabState extends State<HomeTab> {
       alignment: Alignment.center,
       children: [
         ImageAsset(
-          asset: R.images.home_background,
+          asset: 'assets/images/home_background.png',
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           fit: BoxFit.cover,

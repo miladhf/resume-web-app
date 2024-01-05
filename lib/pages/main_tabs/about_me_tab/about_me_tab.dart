@@ -5,7 +5,6 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:resume_web/utils/utils.dart';
 
 import '../../../data/user_data.dart';
-import '../../../utils/R.dart';
 import '../../../widgets/assets/image_asset.dart';
 
 class AboutMeTab extends StatefulWidget {
@@ -53,7 +52,7 @@ class _AboutMeTabState extends State<AboutMeTab> {
                   Transform.flip(
                     flipX: isRtlLocale ? false : true,
                     child: ImageAsset(
-                      asset: R.images.about_me_background,
+                      asset: 'assets/images/about_me_background.png',
                       width: 1700,
                       height: 650,
                       fit: BoxFit.fitHeight,

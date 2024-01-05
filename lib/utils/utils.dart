@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import 'R.dart';
 
 class Utils {
   static bool isRtlLocale(BuildContext context) {
@@ -10,6 +9,6 @@ class Utils {
 
   static bool isDesktop(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    return width >= R.size.mobileWidth;
+    return width >= 700;
   }
 }
