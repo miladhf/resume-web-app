@@ -40,10 +40,11 @@ class BorderButton extends StatelessWidget {
                     child: FittedBox(
                       child: Text(
                         text,
-                        style: Theme.of(context).textTheme.headline1?.copyWith(
-                              color: Theme.of(context).colorScheme.primary,
-                              fontSize: 14,
-                            ),
+                        style:
+                            Theme.of(context).textTheme.displayLarge?.copyWith(
+                                  color: Theme.of(context).colorScheme.primary,
+                                  fontSize: 14,
+                                ),
                       ),
                     ),
                   ),

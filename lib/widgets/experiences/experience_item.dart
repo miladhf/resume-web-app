@@ -47,7 +47,7 @@ class ExperienceItem extends StatelessWidget {
               experience.description,
               style: Theme.of(context)
                   .textTheme
-                  .bodyText1
+                  .bodyMedium
                   ?.copyWith(fontSize: isDesktop ? 15 : 13, height: 2),
             ),
           ],
@@ -82,7 +82,7 @@ class ExperienceItem extends StatelessWidget {
           children: [
             Text(
               experience.title,
-              style: Theme.of(context).textTheme.headline1?.copyWith(
+              style: Theme.of(context).textTheme.displayLarge?.copyWith(
                     fontSize: isDesktop ? 20 : 18,
                   ),
             ),
@@ -91,7 +91,7 @@ class ExperienceItem extends StatelessWidget {
             ),
             Text(
               experience.date,
-              style: Theme.of(context).textTheme.bodyText1?.copyWith(
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     fontSize: isDesktop ? 15 : 13,
                   ),
             ),

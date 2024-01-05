@@ -141,7 +141,7 @@ class _MainAppBarState extends State<MainAppBar> {
                   Utils.isRtlLocale(context) ? 'farsi'.tr() : 'english'.tr(),
                   style: Theme.of(context)
                       .textTheme
-                      .headline2
+                      .displayMedium
                       ?.copyWith(fontSize: 15),
                 ),
               )),
@@ -173,7 +173,7 @@ class _MainAppBarState extends State<MainAppBar> {
                 const SizedBox(width: 5),
                 Text(
                   value,
-                  style: Theme.of(context).textTheme.headline2,
+                  style: Theme.of(context).textTheme.displayMedium,
                 ),
               ],
             ),

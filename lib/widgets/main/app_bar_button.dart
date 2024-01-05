@@ -38,8 +38,8 @@ class AppBarButton extends StatelessWidget {
           child: Text(
             text,
             maxLines: 1,
-            style: Theme.of(context).textTheme.headline2?.copyWith(
-              color: Colors.white,
+            style: Theme.of(context).textTheme.displayMedium?.copyWith(
+                  color: Colors.white,
                 ),
           ),
         ));

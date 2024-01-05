@@ -99,7 +99,7 @@ class _AboutMeTabState extends State<AboutMeTab> {
                 children: [
                   Text(
                     'aboutMe'.tr(),
-                    style: Theme.of(context).textTheme.headline1?.copyWith(
+                    style: Theme.of(context).textTheme.displayLarge?.copyWith(
                           fontSize: isDesktop ? 40 : 35,
                         ),
                   ),
@@ -120,7 +120,7 @@ class _AboutMeTabState extends State<AboutMeTab> {
                     child: Text(
                       UserData.getMyData().description,
                       textAlign: TextAlign.start,
-                      style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                             fontSize: isDesktop ? 25 : 20,
                           ),
                     ),

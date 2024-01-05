@@ -97,7 +97,7 @@ class _SkillsTabState extends State<SkillsTab> {
               ),
               Text(
                 'skills'.tr(),
-                style: Theme.of(context).textTheme.headline1?.copyWith(
+                style: Theme.of(context).textTheme.displayLarge?.copyWith(
                       fontSize: 25,
                     ),
               ),

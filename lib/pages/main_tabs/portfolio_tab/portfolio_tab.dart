@@ -64,7 +64,7 @@ class _PortfolioTabState extends State<PortfolioTab> {
             Center(
               child: Text(
                 'portfolio'.tr(),
-                style: Theme.of(context).textTheme.headline1?.copyWith(
+                style: Theme.of(context).textTheme.displayLarge?.copyWith(
                       fontSize: isDesktop ? 35 : 30,
                     ),
               ),

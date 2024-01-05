@@ -110,7 +110,7 @@ class _PortfolioItemState extends State<PortfolioItem> {
               ),
               const SizedBox(height: 25),
               Text(widget.portfolio.title,
-                  style: Theme.of(context).textTheme.headline2),
+                  style: Theme.of(context).textTheme.displayMedium),
               const SizedBox(height: 15),
               Expanded(
                 child: Row(
@@ -128,7 +128,7 @@ class _PortfolioItemState extends State<PortfolioItem> {
                       child: Text(
                         widget.portfolio.description,
                         textAlign: TextAlign.start,
-                        style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                             fontSize: Utils.isRtlLocale(context) ? 15 : 14),
                       ),
                     ),
@@ -170,7 +170,7 @@ class _PortfolioItemState extends State<PortfolioItem> {
       message: buildTag.title,
       textStyle: Theme.of(context)
           .textTheme
-          .headline3
+          .displaySmall
           ?.copyWith(color: Colors.white, fontSize: 15),
       child: ClipOval(
         child: Container(

@@ -62,7 +62,7 @@ class _ExperiencesTabState extends State<ExperiencesTab> {
                   padding: const EdgeInsets.only(bottom: 10),
                   child: Text(
                     'workExperiences'.tr(),
-                    style: Theme.of(context).textTheme.headline1?.copyWith(
+                    style: Theme.of(context).textTheme.displayLarge?.copyWith(
                           fontSize: isDesktop ? 35 : 30,
                         ),
                   ),

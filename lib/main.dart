@@ -44,25 +44,25 @@ class MyApp extends StatelessWidget {
             background: const Color(0xff101015),
           ),
           textTheme: TextTheme(
-            headline1: const TextStyle(
+            displayLarge: const TextStyle(
               fontFamily: 'peyda',
               fontSize: 30,
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
-            headline2: const TextStyle(
+            displayMedium: const TextStyle(
               fontFamily: 'peyda',
               fontSize: 17,
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
-            headline3: const TextStyle(
+            displaySmall: const TextStyle(
               fontFamily: 'peyda',
               fontSize: 16,
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
-            bodyText1: TextStyle(
+            bodyMedium: TextStyle(
                 fontFamily: Utils.isRtlLocale(context) ? 'peyda' : 'peyda',
                 fontSize: 14,
                 color: Colors.white),

@@ -87,7 +87,10 @@ class _SkillItemState extends State<SkillItem> {
                       padding: const EdgeInsets.only(top: 5),
                       child: Text(
                         widget.skill.text,
-                        style: Theme.of(context).textTheme.headline1?.copyWith(
+                        style: Theme.of(context)
+                            .textTheme
+                            .displayLarge
+                            ?.copyWith(
                               fontSize: isDesktop ? 20 : 15,
                               fontWeight:
                                   isHover ? FontWeight.bold : FontWeight.normal,

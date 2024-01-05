@@ -88,10 +88,13 @@ class CustomButton extends StatelessWidget {
                         child: Text(
                           text.toString(),
                           style:
-                              Theme.of(context).textTheme.headline1?.copyWith(
-                                    fontSize: textSize,
-                                    color: textColor,
-                                  ),
+                              Theme.of(context)
+                              .textTheme
+                              .displayLarge
+                              ?.copyWith(
+                                fontSize: textSize,
+                                color: textColor,
+                              ),
                         ),
                       ),
                     ),

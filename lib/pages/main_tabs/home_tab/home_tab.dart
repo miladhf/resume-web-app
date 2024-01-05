@@ -95,16 +95,22 @@ class _HomeTabState extends State<HomeTab> {
                           Text(
                             UserData.getMyData().name,
                             style:
-                            Theme.of(context).textTheme.headline1?.copyWith(
-                              fontSize: isDesktop ? 40 : 35,
-                            ),
+                            Theme.of(context)
+                                .textTheme
+                                .displayLarge
+                                ?.copyWith(
+                                  fontSize: isDesktop ? 40 : 35,
+                                ),
                           ),
                           Text(
                             UserData.getMyData().jobTitle,
                             style:
-                            Theme.of(context).textTheme.bodyText1?.copyWith(
-                              fontSize: isDesktop ? 30 : 25,
-                            ),
+                            Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(
+                                  fontSize: isDesktop ? 30 : 25,
+                                ),
                           ),
                           const SizedBox(
                             height: 5,
