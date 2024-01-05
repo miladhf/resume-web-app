@@ -31,6 +31,8 @@ class _HomeTabState extends State<HomeTab> {
   @override
   Widget build(BuildContext context) {
     var isDesktop = Utils.isDesktop(context);
+    var isRtlLocale = Utils.isRtlLocale(context);
+
     double height = 175;
     return Stack(
       alignment: Alignment.center,
@@ -50,7 +52,8 @@ class _HomeTabState extends State<HomeTab> {
                     ? [
                         MoveEffect(
                           begin: MoveEffect.neutralValue.copyWith(
-                              dx: MediaQuery.of(context).size.width + 500),
+                              dx: MediaQuery.of(context).size.width +
+                                  (isRtlLocale ? 500 : -500)),
                           duration: 1500.milliseconds,
                         ),
                         if (defaultTargetPlatform == TargetPlatform.android ||
