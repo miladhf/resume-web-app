@@ -5,8 +5,8 @@ import 'package:resume_web/data/portfolio_data.dart';
 import 'package:resume_web/models/portfolio.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../animations/dialog_animations.dart';
 import '../../../utils/utils.dart';
+import '../../../widgets/portfolio/dialog_animations.dart';
 import '../../../widgets/portfolio/porfolio_item.dart';
 import '../../../widgets/portfolio/portfolio_images_dialog.dart';
 

@@ -6,18 +6,18 @@ import 'package:resume_web/pages/main_tabs/portfolio_tab/portfolio_tab.dart';
 import 'package:resume_web/pages/main_tabs/skills_tab/skills_tab.dart';
 
 import '../../utils/utils.dart';
-import '../../widgets/app_bar/main_app_bar.dart';
+import '../../widgets/main/main_app_bar.dart';
 
-class HomePage extends StatefulWidget {
+class MainPage extends StatefulWidget {
   static final navigatorKey = GlobalKey<NavigatorState>();
 
-  const HomePage({Key? key}) : super(key: key);
+  const MainPage({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _MainPageState createState() => _MainPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _MainPageState extends State<MainPage> {
   late Map<String, Widget> tabs = {
     'home': HomeTab(
       onAboutMeTap: onAboutMeTap,

@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../buttons/custom_button.dart';
+import '../custom_button.dart';
 
 class HomeButtons extends StatelessWidget {
   final VoidCallback onAboutMeTap;

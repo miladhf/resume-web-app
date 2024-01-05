@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
-import 'package:resume_web/pages/home/home_page.dart';
+import 'package:resume_web/pages/main/main_page.dart';
 import 'package:resume_web/utils/utils.dart';
 
 void main() async {
@@ -86,7 +86,7 @@ class MyApp extends StatelessWidget {
         }
 
         if (settings.name == '/') {
-          return MaterialPageRoute(builder: (_) => const HomePage());
+          return MaterialPageRoute(builder: (_) => const MainPage());
         }
       },
     );

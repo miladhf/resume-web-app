@@ -2,10 +2,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:resume_web/models/portfolio.dart';
 import 'package:resume_web/utils/utils.dart';
-import 'package:resume_web/widgets/buttons/custom_button.dart';
+import 'package:resume_web/widgets/custom_button.dart';
 
 import '../assets/image_asset.dart';
-import '../buttons/border_button.dart';
+import '../border_button.dart';
 import 'custom_image_clipper.dart';
 
 class PortfolioItem extends StatefulWidget {
