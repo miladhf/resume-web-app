@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:resume_web/utils/utils.dart';
@@ -53,10 +54,19 @@ class _HomeTabState extends State<HomeTab> {
                               dx: MediaQuery.of(context).size.width + 500),
                           duration: 1500.milliseconds,
                         ),
-                        ShimmerEffect(
-                          duration: 1500.milliseconds,
-                          delay: 1500.milliseconds,
-                        ),
+                        if (defaultTargetPlatform == TargetPlatform.android ||
+                            defaultTargetPlatform == TargetPlatform.iOS)
+                          BlurEffect(
+                            duration: 1200.milliseconds,
+                            delay: 1500.milliseconds,
+                            begin: const Offset(4, 4),
+                            end: const Offset(0, 0),
+                          )
+                        else
+                          ShimmerEffect(
+                            duration: 1500.milliseconds,
+                            delay: 1500.milliseconds,
+                          ),
                       ]
                     : [],
                 onComplete: (c) {
@@ -86,16 +96,16 @@ class _HomeTabState extends State<HomeTab> {
                           Text(
                             UserData.getMyData().name,
                             style:
-                                Theme.of(context).textTheme.headline1?.copyWith(
-                                      fontSize: isDesktop ? 40 : 35,
-                                    ),
+                            Theme.of(context).textTheme.headline1?.copyWith(
+                              fontSize: isDesktop ? 40 : 35,
+                            ),
                           ),
                           Text(
                             UserData.getMyData().jobTitle,
                             style:
-                                Theme.of(context).textTheme.bodyText1?.copyWith(
-                                      fontSize: isDesktop ? 30 : 25,
-                                    ),
+                            Theme.of(context).textTheme.bodyText1?.copyWith(
+                              fontSize: isDesktop ? 30 : 25,
+                            ),
                           ),
                           const SizedBox(
                             height: 5,

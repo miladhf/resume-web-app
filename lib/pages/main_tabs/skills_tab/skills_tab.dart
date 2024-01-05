@@ -61,7 +61,7 @@ class _SkillsTabState extends State<SkillsTab> {
           fit: BoxFit.cover,
         ),
         Positioned(
-          bottom: isDesktop ? -120 : -210,
+          bottom: isDesktop ? -120 : -250,
           child: Opacity(
             opacity: 0.8,
             child: Animate(

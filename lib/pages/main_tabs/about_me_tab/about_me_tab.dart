@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:resume_web/utils/utils.dart';
@@ -74,14 +75,16 @@ class _AboutMeTabState extends State<AboutMeTab> {
                     FadeEffect(
                       duration: 1500.milliseconds,
                     ),
-                    ShimmerEffect(
-                      duration: 2000.milliseconds,
-                      delay: 1200.milliseconds,
-                      color: Theme.of(context)
-                          .colorScheme
-                          .primary
-                          .withOpacity(0.5),
-                    ),
+                    if (defaultTargetPlatform != TargetPlatform.android &&
+                        defaultTargetPlatform != TargetPlatform.iOS)
+                      ShimmerEffect(
+                        duration: 2000.milliseconds,
+                        delay: 1200.milliseconds,
+                        color: Theme.of(context)
+                            .colorScheme
+                            .primary
+                            .withOpacity(0.5),
+                      ),
                   ]
                 : [],
             onComplete: (c) {
