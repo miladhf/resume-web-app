@@ -16,17 +16,19 @@ class PortfolioData {
     return [
       Portfolio(
         haveDownloadLink: true,
-        logo: 'assets/images/komak_pic.png',
-        coverImage: 'assets/images/bazyaftche_cover_pic.png',
-        title: 'komakApp'.tr(),
-        description: 'komakDescription'.tr(),
-        downloadLinkText: 'androidDownloadLink'.tr(),
-        buildTag: flutterTag,
+        logo: 'assets/images/tebebehan_pic.png',
+        coverImage: 'assets/images/tebebehan_screenshot_1.jpg',
+        title: 'tebebehanApp'.tr(),
+        description: 'tebebehanDescription'.tr(),
+        downloadLinkText: 'cafeBazaarDownloadLink'.tr(),
+        buildTag: javaTag,
         showPicsButton: true,
         photos: [
-          for (int i = 1; i <= 28; i++) 'assets/images/komak_screenshot_$i.jpg'
+          for (int i = 1; i <= 5; i++)
+            'assets/images/tebebehan_screenshot_$i.jpg'
         ],
-        downloadLink: 'assets/outputs/komak.apk',
+        downloadLink:
+            'https://cafebazaar.ir/app/com.example.omidmilad.tebebehan',
       ),
       Portfolio(
         haveDownloadLink: true,
@@ -45,6 +47,20 @@ class PortfolioData {
       ),
       Portfolio(
         haveDownloadLink: true,
+        logo: 'assets/images/komak_pic.png',
+        coverImage: 'assets/images/bazyaftche_cover_pic.png',
+        title: 'komakApp'.tr(),
+        description: 'komakDescription'.tr(),
+        downloadLinkText: 'androidDownloadLink'.tr(),
+        buildTag: flutterTag,
+        showPicsButton: true,
+        photos: [
+          for (int i = 1; i <= 28; i++) 'assets/images/komak_screenshot_$i.jpg'
+        ],
+        downloadLink: 'assets/outputs/komak.apk',
+      ),
+      Portfolio(
+        haveDownloadLink: true,
         logo: 'assets/images/financial_management_pic.png',
         coverImage: 'assets/images/bazyaftche_cover_pic.png',
         title: 'financialManagementApp'.tr(),
@@ -57,22 +73,6 @@ class PortfolioData {
             'assets/images/financial_management_screenshot_$i.png'
         ],
         downloadLink: 'assets/outputs/financial-management_setup.exe',
-      ),
-      Portfolio(
-        haveDownloadLink: true,
-        logo: 'assets/images/tebebehan_pic.png',
-        coverImage: 'assets/images/bazyaftche_cover_pic.png',
-        title: 'tebebehanApp'.tr(),
-        description: 'tebebehanDescription'.tr(),
-        downloadLinkText: 'cafeBazaarDownloadLink'.tr(),
-        buildTag: javaTag,
-        showPicsButton: true,
-        photos: [
-          for (int i = 1; i <= 5; i++)
-            'assets/images/tebebehan_screenshot_$i.jpg'
-        ],
-        downloadLink:
-            'https://cafebazaar.ir/app/com.example.omidmilad.tebebehan',
       ),
       Portfolio(
         haveDownloadLink: false,

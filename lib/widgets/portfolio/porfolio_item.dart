@@ -99,7 +99,7 @@ class _PortfolioItemState extends State<PortfolioItem> {
                         asset: widget.portfolio.coverImage,
                         width: 310,
                         height: 120,
-                        fit: BoxFit.cover,
+                        fit: BoxFit.fill,
                       ),
                     ),
                   ),

@@ -11,7 +11,7 @@ class WorkExperiencesData {
         description: 'viraDescription'.tr(),
         downloadLinkText: 'seeWebsite'.tr(),
         tagText: 'flutter'.tr(),
-        date: 'خرداد 1401 تا به امروز',
+        date: 'viraDate'.tr(),
         showPicsButton: false,
         imageCover: 'assets/images/work_image_1.png',
       ),
